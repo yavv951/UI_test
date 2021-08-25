@@ -1,4 +1,4 @@
-from pages.login_page import LoginPage
+from UI_test.pages.login_page import LoginPage
 
 
 class Application:
@@ -12,4 +12,8 @@ class Application:
 
     def open_main_page(self):
         self.driver.get(self.url)
+
+
+    def open_auth_page(self):
+        self.driver.get(self.url + "/login/index.php")
 
