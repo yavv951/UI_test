@@ -13,7 +13,6 @@ class Application:
     def open_main_page(self):
         self.driver.get(self.url)
 
-
     def open_auth_page(self):
         self.driver.get(self.url + "/login/index.php")
 

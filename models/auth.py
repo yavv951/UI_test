@@ -1,6 +1,6 @@
 from faker import Faker
 
-fake = Faker("Ru-ru")
+fake = Faker()
 
 
 class AuthData:

@@ -2,6 +2,9 @@ from selenium.webdriver.common.by import By
 
 
 class BasePageLocators:
+
+    PYTHON_BUTTON=(By.CLASS_NAME, "aalink")
+    TEXT_LOGIN_PAGE = (By.CLASS_NAME, "col-12")
     LOGIN = (By.ID, "username")
     PASSWORD = (By.ID, "password")
     SUBMIT = (By.ID, "loginbtn")

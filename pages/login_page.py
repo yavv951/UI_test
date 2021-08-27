@@ -13,17 +13,16 @@ class LoginPage(BasePage):
             return True
         return False
 
-    """def auth(self, login: str, password: str):
-        sign_in = self.app.driver.find_element(*BasePageLocators.SIGN_IN)
+    # Переход на страницу авторизации.
+    def go_on_login_page(self):
+        sign_in = self.app.driver.find_element(*BasePageLocators.PYTHON_BUTTON)
         sign_in.click()
-        email_input = self.app.driver.find_element(*BasePageLocators.USER_NAME)
-        email_input.send_keys(login)
-        pass_input = self.app.driver.find_element(*BasePageLocators.PASSWORD)
-        pass_input.send_keys(password)
-        checkbox = self.app.driver.find_element(*BasePageLocators.SAVE_ME)
-        checkbox.click()
-        click_button = self.app.driver.find_element(*BasePageLocators.BUTTON)
-        click_button.click()"""
+    # Функция указывает на то,что мы находимся или нет на странице авторизации.
+    def login_page_y(self):
+        element = self.find_elements(BasePageLocators.TEXT_LOGIN_PAGE)
+        if len(element) > 0:
+            return True
+        return False
 
     def email_input(self) -> WebElement:
         return self.find_element(BasePageLocators.LOGIN)
@@ -40,8 +39,6 @@ class LoginPage(BasePage):
     def exit(self) -> WebElement:
         return self.find_element(BasePageLocators.EXIT)
 
-    #def sing_in(self):
-        #return self.find_element()
 
     def auth(self, data: AuthData):
         if self.is_auth():

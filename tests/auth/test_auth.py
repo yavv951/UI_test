@@ -1,3 +1,4 @@
+import time
 
 import pytest
 
@@ -6,6 +7,12 @@ from UI_test.models.auth import AuthData
 
 
 class TestAuth:
+
+    def test_main_page(self, app):
+        app.open_main_page()
+        app.login.go_on_login_page()
+        assert app.login.login_page_y(), "We are not in login page"
+
     def test_auth_valid_data(self, app):
         """
         Steps
@@ -44,7 +51,3 @@ class TestAuth:
         app.login.auth(data)
         assert LoginConstants.AUTH_ERROR == app.login.auth_login_error(), "We are auth!"
 
-    def test_page_auth(self, app):
-        app.open_main_page()
-        app.login.auth('vadim951', 'Testtest@5')
-        assert app.login.is_auth(), "Check valid data"
