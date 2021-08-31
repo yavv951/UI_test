@@ -1,5 +1,3 @@
-import time
-
 from selenium.webdriver.remote.webelement import WebElement
 from locators.login_page_locator import BasePageLocators
 from locators.login_page_locator import UserPageLocators
@@ -74,7 +72,3 @@ class UpdatePage(BasePage):
         self.click_element(self.user_menu())
         self.click_element(self.about_user_2())
         self.find_element(UserPageLocators.EDIT_INFO)
-
-
-
-

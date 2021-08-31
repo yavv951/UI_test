@@ -14,12 +14,18 @@ def app(request):
 
 
 def pytest_addoption(parser):
-    parser.addoption("--base-url", action="store", default="https://qacoursemoodle.innopolis.university/",
-                     help="enter base url")
-    parser.addoption("--username", action="store", default="vadim951",
-                     help="user name")
-    parser.addoption("--password", action="store", default="Testtest@5",
-                     help="password")
+    parser.addoption(
+        "--base-url",
+        action="store",
+        default="https://qacoursemoodle.innopolis.university/",
+        help="enter base url",
+    )
+    parser.addoption("--username", action="store", default="vadim951", help="user name")
+    parser.addoption(
+        "--password", action="store", default="Testtest@5", help="password"
+    )
+
+
 @pytest.fixture
 def auth(app, request):
     user = request.config.getoption("--username")
@@ -28,9 +34,9 @@ def auth(app, request):
     data = AuthData(login=user, password=password)
     app.login.auth(data)
 
+
 @pytest.fixture
 def invalid_auth(app):
     app.open_auth_page()
     data = AuthData.random()
     app.login.auth(data)
-

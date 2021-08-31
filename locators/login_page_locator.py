@@ -32,4 +32,4 @@ class UserPageLocators:
     EMAIL_DISPLAY = (By.ID, "id_maildisplay")
     NEW_PASSWORD = (By.ID, "id_newpassword")
     SUBMIT = (By.NAME, "submitbutton")
-    CHANGE = (By.ID, "yui_3_17_2_1_1630357602223_20")
+    CHANGE_INF = (By.ID, "yui_3_17_2_1_1630357602223_20")
