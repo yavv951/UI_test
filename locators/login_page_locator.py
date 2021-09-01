@@ -33,3 +33,4 @@ class UserPageLocators:
     NEW_PASSWORD = (By.ID, "id_newpassword")
     SUBMIT = (By.NAME, "submitbutton")
     CHANGE_INF = (By.ID, "yui_3_17_2_1_1630357602223_20")
+    IS_CHANGE = (By.CLASS_NAME, "alert alert-success alert-block fade in")

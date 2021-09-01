@@ -1,7 +1,8 @@
 from selenium.webdriver.remote.webelement import WebElement
-from locators.login_page_locator import BasePageLocators, UserPageLocators
-from models.auth import AuthData
-from pages.base_page import BasePage
+
+from UI_test.locators.login_page_locator import BasePageLocators, UserPageLocators
+from UI_test.models.auth import AuthData, PersonalData
+from UI_test.pages.base_page import BasePage
 
 
 class LoginPage(BasePage):
@@ -94,17 +95,41 @@ class LoginPage(BasePage):
         self.click_element(self.about_user_2())
         self.find_element(UserPageLocators.EDIT_INFO)
 
-    def input_firstname(self):
-        self.find_element(UserPageLocators.FIRST_NAME)
+    # Находим элемент имя
+    def firstname_input(self):
+        return self.find_element(UserPageLocators.FIRST_NAME)
 
-    def input_lastname(self):
-        self.find_element(UserPageLocators.LAST_NAME)
+    # Вводим имя
+    def input_firstname(self, personal_data: PersonalData):
+        self.fill_element(self.firstname_input(), personal_data.firstname)
 
-    def input_email(self):
-        self.find_element(UserPageLocators.EMAIL)
+    # Находим элемент фамилия
+    def lastname_input(self):
+        return self.find_element(UserPageLocators.LAST_NAME)
+
+    # Вводим фамилию
+    def input_lastname(self, personal_data: PersonalData):
+        self.fill_element(self.lastname_input(), personal_data.lastname)
+
+    # Находим элемент email
+    def email_inputt(self):
+        return self.find_element(UserPageLocators.EMAIL)
+
+    # Вводим email
+    def input_email(self, personal_data: PersonalData):
+        self.fill_element(self.email_inputt(), personal_data.user_email)
 
     def submit_button_prof(self):
-        self.find_element(UserPageLocators.SUBMIT)
+        return self.find_element(UserPageLocators.SUBMIT)
 
     def submit_changes(self):
         self.click_element(self.submit_button_prof())
+
+    def edit_personal_data(self, personal_data: PersonalData):
+        self.fill_element(self.firstname_input(), personal_data.firstname)
+        self.fill_element(self.lastname_input(), personal_data.lastname)
+        self.fill_element(self.email_inputt(), personal_data.user_email)
+        self.submit_changes()
+
+    def is_change(self) -> str:
+        return self.find_element(UserPageLocators.IS_CHANGE)

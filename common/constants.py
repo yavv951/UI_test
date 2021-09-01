@@ -1,5 +1,6 @@
 class LoginConstants:
     AUTH_ERROR = "Неверный логин или пароль, попробуйте заново."
+    IS_CHANGE_INF = "Изменения сохранены"
 
 
 class PersonalDataConstants:

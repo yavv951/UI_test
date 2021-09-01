@@ -1,7 +1,7 @@
 from selenium import webdriver
 import pytest
 from webdriver_manager.chrome import ChromeDriverManager
-from models.auth import AuthData
+from models.auth import AuthData, PersonalData
 from pages.application import Application
 
 
@@ -24,6 +24,11 @@ def pytest_addoption(parser):
     parser.addoption(
         "--password", action="store", default="Testtest@5", help="password"
     )
+    parser.addoption("--firstname", action="store", default="Vadim", help="firstname")
+    parser.addoption("--lastname", action="store", default="Yadutov", help="lastname")
+    parser.addoption(
+        "--user_email", action="store", default="yadutovvv@yandex.ru", help="email"
+    )
 
 
 @pytest.fixture
@@ -40,3 +45,22 @@ def invalid_auth(app):
     app.open_auth_page()
     data = AuthData.random()
     app.login.auth(data)
+
+
+# Фикстура задать имя,фамилия и mail по умолчанию
+@pytest.fixture
+def update_user_info(app, request):
+    firstname = request.config.getoption("--firstname")
+    lastname = request.config.getoption("--lastname")
+    user_email = request.config.getoption("--user_email")
+    personal_data = PersonalData(
+        firstname=firstname, lastname=lastname, user_email=user_email
+    )
+    app.login.update_user()
+    app.login.edit_personal_data(personal_data)
+
+
+# Фикстура для перехода в блок редактирования информации пользователя
+@pytest.fixture
+def user_info(app, request):
+    app.login.update_user()

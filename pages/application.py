@@ -1,4 +1,4 @@
-from pages.login_page import LoginPage
+from UI_test.pages.login_page import LoginPage
 
 
 class Application:

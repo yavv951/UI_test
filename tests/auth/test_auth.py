@@ -1,8 +1,6 @@
 import pytest
-from common.constants import LoginConstants
-from models.auth import AuthData
-
-from UI_test.models.auth import PersonalData
+from UI_test.common.constants import LoginConstants
+from UI_test.models.auth import PersonalData, AuthData
 
 
 class TestAuth:
@@ -49,15 +47,19 @@ class TestAuth:
         app.login.auth(data)
         assert LoginConstants.AUTH_ERROR == app.login.auth_login_error(), "We are auth!"
 
-    @pytest.mark.parametrize("field", ["first_name", "last_name", "email"])
-    def test_update_user(self, app, field):
+    # @pytest.mark.parametrize("email", ["first_name", "last_name", "email"])
+    def test_update_user(self, app, auth, user_info):
         """
         Steps
         1. Open main page
         2. Auth with valid data
         3. Check auth result
         """
-        app.login.update_user()
+        # app.login.update_user()
         personal_data = PersonalData.random()
-        setattr(personal_data, field)
-        assert "Редактировать информацию", "We are not auth"
+        # app.login.input_firstname(personal_data)
+        # app.login.input_lastname(personal_data)
+        # app.login.input_email(personal_data)
+        # app.login.submit_changes()
+        app.login.edit_personal_data(personal_data)
+        assert "Изменения сохранены" in app.login.is_change(), "Is not change!"
