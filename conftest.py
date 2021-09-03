@@ -62,5 +62,5 @@ def update_user_info(app, request):
 
 # Фикстура для перехода в блок редактирования информации пользователя
 @pytest.fixture
-def user_info(app, request):
+def user_info(app):
     app.login.update_user()
