@@ -24,7 +24,7 @@ class UserPageLocators:
     FIRST_NAME = (By.ID, "id_firstname")
     LAST_NAME = (By.ID, "id_lastname")
     EMAIL = (By.ID, "id_email")
-    MOODLE_NET_PROFILE = (By.ID, "id_moodlenetprofile")
+    MOODLE_NET_PROFILE = (By.NAME, "moodlenetprofile")
     CITY_INPUT = (By.ID, "id_city")
     COUNTRY_SELECT = (By.ID, "id_country")
     TIMEZONE_SELECT = (By.ID, "id_timezone")
@@ -33,4 +33,41 @@ class UserPageLocators:
     NEW_PASSWORD = (By.ID, "id_newpassword")
     SUBMIT = (By.NAME, "submitbutton")
     CHANGE_INF = (By.ID, "yui_3_17_2_1_1630357602223_20")
-    IS_CHANGE = (By.CLASS_NAME, "alert alert-success alert-block fade in")
+    IS_CHANGE_2 = (By.ID, "user-notifications")
+    IS_CHANGE = (By.CLASS_NAME, "alert-success")
+
+    OPEN_WIN = (By.CLASS_NAME, "collapseexpand")
+    MOODLE_PICTURE = (By.ID, "id_moodle_picture")
+    INPUT_PICTURE = (By.ID, "id_imagefile")
+    ALT_PICTURE = (By.ID, "id_imagealt")
+    # Дополнительная информация об имени
+    ADDITIONAL_INF = (By.XPATH, "//*[text()='Дополнительная информация об имени']")
+    FIRST_FONETIC_NAME = (By.ID, "id_firstnamephonetic")
+    LAST_FONETIC_NAME = (By.ID, "id_lastnamephonetic")
+    MIDDLE_NAME = (By.ID, "id_middlename")
+    ALTER_NAME = (By.ID, "id_alternatename")
+
+    MOODLE_INTEREST = (By.XPATH, "//*[text()='Интересы']")
+    FORM_AUTOCOMPLIT = (By.CSS_SELECTOR, 'input[placeholder="Введите теги..."]')
+
+
+    OPTIONAL = (By.XPATH, "//*[text()='Необязательное']")
+    ID_NUMBER = (By.ID, "id_idnumber")
+    INSTITUTION = (By.ID, "id_institution")
+    DEPARTAMENT = (By.ID, "id_department")
+    PHONE_1 = (By.ID, "id_phone1")
+    PHONE_2 = (By.ID, "id_phone2")
+    ADDRESS = (By.ID, "id_address")
+
+
+
+
+
+
+
+
+
+
+
+
+

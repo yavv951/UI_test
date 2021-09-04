@@ -1,7 +1,7 @@
 import pytest
 from UI_test.common.constants import LoginConstants
 from UI_test.models.auth import PersonalData, AuthData
-
+import time
 
 class TestAuth:
     def test_main_page(self, app):
@@ -47,19 +47,17 @@ class TestAuth:
         app.login.auth(data)
         assert LoginConstants.AUTH_ERROR == app.login.auth_login_error(), "We are auth!"
 
-    # @pytest.mark.parametrize("email", ["first_name", "last_name", "email"])
     def test_update_user(self, app, auth, user_info):
         """
         Steps
         1. Open main page
         2. Auth with valid data
-        3. Check auth result
+        3. Open user info
+        4. Open page update user info
+        5. Input user info
+        6. User info update
         """
-        # app.login.update_user()
         personal_data = PersonalData.random()
-        # app.login.input_firstname(personal_data)
-        # app.login.input_lastname(personal_data)
-        # app.login.input_email(personal_data)
-        # app.login.submit_changes()
         app.login.edit_personal_data(personal_data)
-        assert "Изменения сохранены" in app.login.is_change(), "Is not change!"
+        #assert app.login.is_change(), "Is not change!"
+        assert LoginConstants.IS_CHANGE_INF in app.login.is_change(), "Is not change!"

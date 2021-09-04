@@ -6,10 +6,10 @@ class LoginConstants:
 class PersonalDataConstants:
     TIMEZONE_VALUES = (
         "Asia/Vladivostok",
-        "Australia / Sydney",
+        "Australia/Sydney",
         "America/New_York",
         "Africa/Tunis",
         "Europe/Moscow",
         "UTC",
-        "99",  # server's timezone
+        "99"  # server's timezone
     )

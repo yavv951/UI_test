@@ -1,4 +1,5 @@
 import random
+from time import time
 
 from faker import Faker
 
@@ -18,16 +19,6 @@ class AuthData:
         password = fake.password()
         return AuthData(login, password)
 
-
-"""moodle_net_profile=None,
-        city=None,
-        timezone=None,
-        country_code=None,
-        about=None,
-        url=None,
-        image_url=None,"""
-
-
 class PersonalData:
     def __init__(
         self,
@@ -41,6 +32,7 @@ class PersonalData:
         about=None,
         url=None,
         image_url=None,
+        image_inf=None
     ):
         self.firstname = firstname
         self.lastname = lastname
@@ -52,6 +44,7 @@ class PersonalData:
         self.about = about
         self.url = url
         self.image_url = image_url
+        self.image_inf = image_inf
 
     @staticmethod
     def random():
@@ -65,6 +58,7 @@ class PersonalData:
         about = fake.text(max_nb_chars=200)
         url = fake.url()
         image_url = fake.image_url()
+        image_inf = fake.text(max_nb_chars=50)
         return PersonalData(
             firstname,
             lastname,
@@ -76,4 +70,5 @@ class PersonalData:
             about,
             url,
             image_url,
+            image_inf
         )

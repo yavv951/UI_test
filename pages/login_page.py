@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.remote.webelement import WebElement
 import logging
 from UI_test.locators.login_page_locator import BasePageLocators, UserPageLocators
@@ -86,13 +88,13 @@ class LoginPage(BasePage):
     def edit_profile(self):
         return self.find_element(UserPageLocators.EDIT_INFO)
 
-    # Переход в редактированеи информации через кнопку "настройка"
+    # Переход в редактирование информации через кнопку "настройка"
     def update_user(self):
         self.click_element(self.user_menu())
         self.click_element(self.about_user())
         self.click_element(self.edit_profile())
 
-    # Переход в редактированеи информации через кнопку "о пользователе"
+    # Переход в редактирование информации через кнопку "о пользователе"
     def update_user_2(self):
         self.click_element(self.user_menu())
         self.click_element(self.about_user_2())
@@ -102,37 +104,144 @@ class LoginPage(BasePage):
     def firstname_input(self):
         return self.find_element(UserPageLocators.FIRST_NAME)
 
-    # Вводим имя
-    def input_firstname(self, personal_data: PersonalData):
-        self.fill_element(self.firstname_input(), personal_data.firstname)
-
     # Находим элемент фамилия
     def lastname_input(self):
         return self.find_element(UserPageLocators.LAST_NAME)
 
-    # Вводим фамилию
-    def input_lastname(self, personal_data: PersonalData):
-        self.fill_element(self.lastname_input(), personal_data.lastname)
-
     # Находим элемент email
-    def email_inputt(self):
+    def input_email(self):
         return self.find_element(UserPageLocators.EMAIL)
 
-    # Вводим email
-    def input_email(self, personal_data: PersonalData):
-        self.fill_element(self.email_inputt(), personal_data.user_email)
+    def mood_profile_input(self):
+        return self.find_element(UserPageLocators.MOODLE_NET_PROFILE)
 
+    def city_input(self):
+        return self.find_element(UserPageLocators.CITY_INPUT)
+
+    def is_change_2(self) -> bool:
+        self.find_elements(UserPageLocators.IS_CHANGE)
+        element = self.find_elements(UserPageLocators.IS_CHANGE)
+        if len(element) > 0:
+            return True
+        return False
+
+    def is_change(self):
+        return self.find_element(UserPageLocators.IS_CHANGE).text
+
+    def country_select(self) -> WebElement:
+        country_select = self.find_select_element(
+            UserPageLocators.COUNTRY_SELECT
+        )
+        return country_select
+
+    def timezone_select(self) -> WebElement:
+        timezone_select = self.find_select_element(
+            UserPageLocators.TIMEZONE_SELECT
+        )
+        return timezone_select
+
+    def description_input(self):
+        return self.find_element(UserPageLocators.DESCRIPTION)
+    # Вкладка загрузки изображения
+    def moodle_picture(self):
+        return self.find_element(UserPageLocators.MOODLE_PICTURE)
+
+    def input_picture(self):
+        return self.find_element(UserPageLocators.INPUT_PICTURE)
+
+    def alt_picture(self):
+        return self.find_element(UserPageLocators.ALT_PICTURE)
+
+    # Дополнительная информация об имени.
+    def additional_inf(self):
+        return self.find_element(UserPageLocators.ADDITIONAL_INF)
+
+    def first_fonetic_name(self):
+        return self.find_element(UserPageLocators.FIRST_FONETIC_NAME)
+
+    def last_fonetic_name(self):
+        return self.find_element(UserPageLocators.LAST_FONETIC_NAME)
+
+    def middle_name(self):
+        return self.find_element(UserPageLocators.MIDDLE_NAME)
+
+    def alter_name(self):
+        return self.find_element(UserPageLocators.ALTER_NAME)
+
+    # Интересы.
+    def moodle_interest(self):
+        return self.find_element(UserPageLocators.MOODLE_INTEREST)
+
+    def form_autocomplite(self):
+        return self.find_element(UserPageLocators.FORM_AUTOCOMPLIT)
+
+    # Вкладка необязательное.
+
+    def click_optional(self):
+        return self.find_element(UserPageLocators.OPTIONAL)
+
+    def id_number(self):
+        return self.find_element(UserPageLocators.ID_NUMBER)
+
+    def institution(self):
+        return self.find_element(UserPageLocators.INSTITUTION)
+
+    def departament(self):
+        return self.find_element(UserPageLocators.DEPARTAMENT)
+
+    def phone_1(self):
+        return self.find_element(UserPageLocators.PHONE_1)
+
+    def phone_2(self):
+        return self.find_element(UserPageLocators.PHONE_2)
+
+    def address(self):
+        return self.find_element(UserPageLocators.ADDRESS)
+
+
+    # Находим элемент сохранить данные
     def submit_button_prof(self):
         return self.find_element(UserPageLocators.SUBMIT)
 
     def submit_changes(self):
         self.click_element(self.submit_button_prof())
 
+    def open_all_sections(self):
+        return self.find_element(UserPageLocators.OPEN_WIN)
+
     def edit_personal_data(self, personal_data: PersonalData):
+        #self.click_element(self.open_all_sections())
+        time.sleep(5)
         self.fill_element(self.firstname_input(), personal_data.firstname)
         self.fill_element(self.lastname_input(), personal_data.lastname)
-        self.fill_element(self.email_inputt(), personal_data.user_email)
+        self.fill_element(self.input_email(), personal_data.user_email)
+        self.fill_element(self.mood_profile_input(), personal_data.moodle_net_profile)
+        self.fill_element(self.city_input(), personal_data.city)
+        self.select_value(self.country_select(),personal_data.country_code)
+        self.select_value(self.timezone_select(), personal_data.timezone)
+        self.fill_element(self.description_input(), personal_data.about)
+        #кликаем на кнопку изображение пользователя
+        #self.click_element(self.moodle_picture())
+        #self.fill_element(self.input_picture(), personal_data.image_url)
+        #self.fill_element(self.alt_picture(), personal_data.image_inf)
+        time.sleep(5)
+        self.click_element(self.additional_inf())
+        self.fill_element(self.first_fonetic_name(), personal_data.image_inf)
+        self.fill_element(self.last_fonetic_name(), personal_data.image_inf)
+        self.fill_element(self.middle_name(), personal_data.image_inf)
+        self.fill_element(self.alter_name(), personal_data.image_inf)
+
+        self.click_element(self.moodle_interest())
+        self.fill_element(self.form_autocomplite(), personal_data.image_inf)
+
+        self.click_element(self.click_optional())
+        self.fill_element(self.id_number(), personal_data.image_inf)
+        self.fill_element(self.institution(), personal_data.image_inf)
+        self.fill_element(self.departament(), personal_data.image_inf)
+        self.fill_element(self.phone_1(), personal_data.image_inf)
+        self.fill_element(self.phone_2(), personal_data.image_inf)
+        self.fill_element(self.address(), personal_data.image_inf)
+        time.sleep(5)
         self.submit_changes()
 
-    def is_change(self) -> str:
-        return self.find_element(UserPageLocators.IS_CHANGE)
+

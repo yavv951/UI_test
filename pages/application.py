@@ -1,5 +1,7 @@
 from UI_test.pages.login_page import LoginPage
+import logging
 
+logger = logging.getLogger("moodle")
 
 class Application:
     def __init__(self, driver, url):
@@ -11,7 +13,9 @@ class Application:
         self.driver.quit()
 
     def open_main_page(self):
+        logger.info("open " + self.url)
         self.driver.get(self.url)
 
     def open_auth_page(self):
+        logger.info("open " + self.url + "/login/index.php")
         self.driver.get(self.url + "/login/index.php")
