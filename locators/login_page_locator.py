@@ -46,11 +46,10 @@ class UserPageLocators:
     LAST_FONETIC_NAME = (By.ID, "id_lastnamephonetic")
     MIDDLE_NAME = (By.ID, "id_middlename")
     ALTER_NAME = (By.ID, "id_alternatename")
-
+    # Интересы
     MOODLE_INTEREST = (By.XPATH, "//*[text()='Интересы']")
     FORM_AUTOCOMPLIT = (By.CSS_SELECTOR, 'input[placeholder="Введите теги..."]')
-
-
+    # Необязательное
     OPTIONAL = (By.XPATH, "//*[text()='Необязательное']")
     ID_NUMBER = (By.ID, "id_idnumber")
     INSTITUTION = (By.ID, "id_institution")

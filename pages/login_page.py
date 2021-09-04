@@ -1,5 +1,4 @@
 import time
-
 from selenium.webdriver.remote.webelement import WebElement
 import logging
 from UI_test.locators.login_page_locator import BasePageLocators, UserPageLocators
@@ -224,16 +223,13 @@ class LoginPage(BasePage):
         #self.click_element(self.moodle_picture())
         #self.fill_element(self.input_picture(), personal_data.image_url)
         #self.fill_element(self.alt_picture(), personal_data.image_inf)
-        time.sleep(5)
         self.click_element(self.additional_inf())
         self.fill_element(self.first_fonetic_name(), personal_data.image_inf)
         self.fill_element(self.last_fonetic_name(), personal_data.image_inf)
         self.fill_element(self.middle_name(), personal_data.image_inf)
         self.fill_element(self.alter_name(), personal_data.image_inf)
-
         self.click_element(self.moodle_interest())
         self.fill_element(self.form_autocomplite(), personal_data.image_inf)
-
         self.click_element(self.click_optional())
         self.fill_element(self.id_number(), personal_data.image_inf)
         self.fill_element(self.institution(), personal_data.image_inf)
@@ -241,7 +237,6 @@ class LoginPage(BasePage):
         self.fill_element(self.phone_1(), personal_data.image_inf)
         self.fill_element(self.phone_2(), personal_data.image_inf)
         self.fill_element(self.address(), personal_data.image_inf)
-        time.sleep(5)
         self.submit_changes()
 
 

@@ -1,7 +1,7 @@
 import pytest
 from UI_test.common.constants import LoginConstants
 from UI_test.models.auth import PersonalData, AuthData
-import time
+
 
 class TestAuth:
     def test_main_page(self, app):
