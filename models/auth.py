@@ -1,8 +1,5 @@
 import random
-from time import time
-
 from faker import Faker
-
 from UI_test.common.constants import PersonalDataConstants
 
 fake = Faker()
@@ -19,20 +16,21 @@ class AuthData:
         password = fake.password()
         return AuthData(login, password)
 
+
 class PersonalData:
     def __init__(
-        self,
-        firstname=None,
-        lastname=None,
-        user_email=None,
-        moodle_net_profile=None,
-        city=None,
-        timezone=None,
-        country_code=None,
-        about=None,
-        url=None,
-        image_url=None,
-        image_inf=None
+            self,
+            firstname=None,
+            lastname=None,
+            user_email=None,
+            moodle_net_profile=None,
+            city=None,
+            timezone=None,
+            country_code=None,
+            about=None,
+            url=None,
+            image_url=None,
+            image_inf=None
     ):
         self.firstname = firstname
         self.lastname = lastname

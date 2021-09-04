@@ -59,5 +59,5 @@ class TestAuth:
         """
         personal_data = PersonalData.random()
         app.login.edit_personal_data(personal_data)
-        #assert app.login.is_change(), "Is not change!"
+        # assert app.login.is_change(), "Is not change!"
         assert LoginConstants.IS_CHANGE_INF in app.login.is_change(), "Is not change!"

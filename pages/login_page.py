@@ -43,14 +43,6 @@ class LoginPage(BasePage):
     def exit(self) -> WebElement:
         return self.find_element(BasePageLocators.EXIT)
 
-    """def auth(self, data: AuthData):
-        if self.is_auth():
-            self.click_element(self.user_menu())
-            self.click_element(self.exit())
-        self.fill_element(self.email_input(), data.login)
-        self.fill_element(self.password_input(), data.password)
-        self.click_element(self.submit_button())"""
-
     def auth_login_error(self) -> str:
         return self.find_element(BasePageLocators.LOGIN_ERROR).text
 
@@ -141,6 +133,7 @@ class LoginPage(BasePage):
 
     def description_input(self):
         return self.find_element(UserPageLocators.DESCRIPTION)
+
     # Вкладка загрузки изображения
     def moodle_picture(self):
         return self.find_element(UserPageLocators.MOODLE_PICTURE)
@@ -197,7 +190,6 @@ class LoginPage(BasePage):
     def address(self):
         return self.find_element(UserPageLocators.ADDRESS)
 
-
     # Находим элемент сохранить данные
     def submit_button_prof(self):
         return self.find_element(UserPageLocators.SUBMIT)
@@ -209,20 +201,20 @@ class LoginPage(BasePage):
         return self.find_element(UserPageLocators.OPEN_WIN)
 
     def edit_personal_data(self, personal_data: PersonalData):
-        #self.click_element(self.open_all_sections())
+        # self.click_element(self.open_all_sections())
         time.sleep(5)
         self.fill_element(self.firstname_input(), personal_data.firstname)
         self.fill_element(self.lastname_input(), personal_data.lastname)
         self.fill_element(self.input_email(), personal_data.user_email)
         self.fill_element(self.mood_profile_input(), personal_data.moodle_net_profile)
         self.fill_element(self.city_input(), personal_data.city)
-        self.select_value(self.country_select(),personal_data.country_code)
+        self.select_value(self.country_select(), personal_data.country_code)
         self.select_value(self.timezone_select(), personal_data.timezone)
         self.fill_element(self.description_input(), personal_data.about)
-        #кликаем на кнопку изображение пользователя
-        #self.click_element(self.moodle_picture())
-        #self.fill_element(self.input_picture(), personal_data.image_url)
-        #self.fill_element(self.alt_picture(), personal_data.image_inf)
+        # кликаем на кнопку изображение пользователя
+        # self.click_element(self.moodle_picture())
+        # self.fill_element(self.input_picture(), personal_data.image_url)
+        # self.fill_element(self.alt_picture(), personal_data.image_inf)
         self.click_element(self.additional_inf())
         self.fill_element(self.first_fonetic_name(), personal_data.image_inf)
         self.fill_element(self.last_fonetic_name(), personal_data.image_inf)

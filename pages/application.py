@@ -3,6 +3,7 @@ import logging
 
 logger = logging.getLogger("moodle")
 
+
 class Application:
     def __init__(self, driver, url):
         self.driver = driver
