@@ -37,9 +37,12 @@ class UserPageLocators:
     IS_CHANGE = (By.CLASS_NAME, "alert-success")
 
     OPEN_WIN = (By.CLASS_NAME, "collapseexpand")
-    MOODLE_PICTURE = (By.ID, "id_moodle_picture")
-    INPUT_PICTURE = (By.ID, "id_imagefile")
-    ALT_PICTURE = (By.ID, "id_imagealt")
+
+    MOODLE_PICTURE = (By.XPATH, "//*[text()='Изображение пользователя']")
+    INPUT_PICTURE = (By.CLASS_NAME, "dndupload-arrow")
+    ALT_PICTURE = (By.ID, "fileurl")
+    BUTTON_IMAGE = (By.XPATH, "//*[text()='Скачать']")
+    IMAGE = (By.CLASS_NAME, "fp-filename-field")
     # Дополнительная информация об имени
     ADDITIONAL_INF = (By.XPATH, "//*[text()='Дополнительная информация об имени']")
     FIRST_FONETIC_NAME = (By.ID, "id_firstnamephonetic")
@@ -49,6 +52,7 @@ class UserPageLocators:
     # Интересы
     MOODLE_INTEREST = (By.XPATH, "//*[text()='Интересы']")
     FORM_AUTOCOMPLIT = (By.CSS_SELECTOR, 'input[placeholder="Введите теги..."]')
+    DELETE_AUTOCOMPLIT = (By.XPATH, '//*[span="× "]')
     # Необязательное
     OPTIONAL = (By.XPATH, "//*[text()='Необязательное']")
     ID_NUMBER = (By.ID, "id_idnumber")
