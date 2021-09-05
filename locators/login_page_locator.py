@@ -35,9 +35,7 @@ class UserPageLocators:
     CHANGE_INF = (By.ID, "yui_3_17_2_1_1630357602223_20")
     IS_CHANGE_2 = (By.ID, "user-notifications")
     IS_CHANGE = (By.CLASS_NAME, "alert-success")
-
     OPEN_WIN = (By.CLASS_NAME, "collapseexpand")
-
     MOODLE_PICTURE = (By.XPATH, "//*[text()='Изображение пользователя']")
     INPUT_PICTURE = (By.CLASS_NAME, "dndupload-arrow")
     ALT_PICTURE = (By.ID, "fileurl")
@@ -61,16 +59,3 @@ class UserPageLocators:
     PHONE_1 = (By.ID, "id_phone1")
     PHONE_2 = (By.ID, "id_phone2")
     ADDRESS = (By.ID, "id_address")
-
-
-
-
-
-
-
-
-
-
-
-
-

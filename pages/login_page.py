@@ -1,4 +1,3 @@
-import time
 from selenium.webdriver.remote.webelement import WebElement
 import logging
 from ui_test.locators.login_page_locator import BasePageLocators, UserPageLocators
@@ -147,7 +146,6 @@ class LoginPage(BasePage):
     def click_input_image(self):
         return self.find_element(UserPageLocators.BUTTON_IMAGE)
 
-
     # Дополнительная информация об имени.
     def additional_inf(self) -> WebElement:
         return self.find_element(UserPageLocators.ADDITIONAL_INF)
@@ -226,7 +224,6 @@ class LoginPage(BasePage):
     def input_image(self):
         return self.find_elements(UserPageLocators.BUTTON_IMAGE)
 
-
     def edit_personal_data(self, personal_data: PersonalData):
         """ Функция, которая обновляет данные
         пользователя (имя, фамилию, email и т.д.) """
@@ -239,11 +236,11 @@ class LoginPage(BasePage):
         self.select_value(self.timezone_select(), personal_data.timezone)
         self.fill_element(self.description_input(), personal_data.about)
         # кликаем на кнопку изображение пользователя
-        #self.click_element(self.moodle_picture())
-        #self.click_element(self.input_picture())
-        #self.fill_element(self.alt_picture(), personal_data.image_url)
-        #self.click_element(self.click_input_image())
-        #self.click_element(self.input_image()[1])
+        # self.click_element(self.moodle_picture())
+        # self.click_element(self.input_picture())
+        # self.fill_element(self.alt_picture(), personal_data.image_url)
+        # self.click_element(self.click_input_image())
+        # self.click_element(self.input_image()[1])
         self.click_element(self.additional_inf())
         self.fill_element(self.first_fonetic_name(), personal_data.image_inf)
         self.fill_element(self.last_fonetic_name(), personal_data.image_inf)
@@ -260,5 +257,3 @@ class LoginPage(BasePage):
         self.fill_element(self.phone_2(), personal_data.image_inf)
         self.fill_element(self.address(), personal_data.image_inf)
         self.submit_changes()
-
-
