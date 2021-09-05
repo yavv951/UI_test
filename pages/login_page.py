@@ -1,9 +1,9 @@
 import time
 from selenium.webdriver.remote.webelement import WebElement
 import logging
-from UI_test.locators.login_page_locator import BasePageLocators, UserPageLocators
-from UI_test.models.auth import AuthData, PersonalData
-from UI_test.pages.base_page import BasePage
+from ui_test.locators.login_page_locator import BasePageLocators, UserPageLocators
+from ui_test.models.auth import AuthData, PersonalData
+from ui_test.pages.base_page import BasePage
 
 logger = logging.getLogger("moodle")
 
@@ -240,12 +240,10 @@ class LoginPage(BasePage):
         self.fill_element(self.description_input(), personal_data.about)
         # кликаем на кнопку изображение пользователя
         #self.click_element(self.moodle_picture())
-        self.click_element(self.input_picture())
-        self.fill_element(self.alt_picture(), personal_data.image_url)
+        #self.click_element(self.input_picture())
+        #self.fill_element(self.alt_picture(), personal_data.image_url)
         #self.click_element(self.click_input_image())
-        time.sleep(3)
-        self.click_element(self.input_image()[1])
-        time.sleep(5)
+        #self.click_element(self.input_image()[1])
         self.click_element(self.additional_inf())
         self.fill_element(self.first_fonetic_name(), personal_data.image_inf)
         self.fill_element(self.last_fonetic_name(), personal_data.image_inf)

@@ -1,6 +1,6 @@
 import pytest
-from UI_test.common.constants import LoginConstants
-from UI_test.models.auth import PersonalData, AuthData
+from ui_test.common.constants import LoginConstants
+from ui_test.models.auth import PersonalData, AuthData
 
 
 class TestAuth:
