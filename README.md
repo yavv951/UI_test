@@ -3,7 +3,7 @@
 
 Python selenium ui tests
 
-testing application: http://automationpractice.com/
+testing application: https://qacoursemoodle.innopolis.university/
 
 https://markdownlivepreview.com
 
