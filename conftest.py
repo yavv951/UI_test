@@ -2,10 +2,20 @@ from selenium import webdriver
 import pytest
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from ui_test.models.auth import PersonalData
-from ui_test.models.auth import AuthData
+#from ui_test.models.auth import PersonalData
+#from ui_test.models.auth import AuthData
 from pages.application import Application
 import logging
+import os.path
+import sys
+
+ui_test_dir = os.path.dirname(__file__)
+
+sys.path.append(ui_test_dir)
+
+from ui_test.models.auth import AuthData, PersonalData
+
+
 
 logger = logging.getLogger("moodle")
 
