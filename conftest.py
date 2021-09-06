@@ -2,7 +2,8 @@ from selenium import webdriver
 import pytest
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from ui_test.models.auth import PersonalData, AuthData
+from ui_test.models.auth import PersonalData
+from ui_test.models.auth import AuthData
 from pages.application import Application
 import logging
 
