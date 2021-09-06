@@ -1,5 +1,6 @@
 import random
 from faker import Faker
+
 from ui_test.common.constants import PersonalDataConstants
 
 fake = Faker()
