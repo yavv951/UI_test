@@ -1,7 +1,8 @@
 from selenium.webdriver.remote.webelement import WebElement
 import logging
 from ui_test.locators.login_page_locator import BasePageLocators, UserPageLocators
-from ui_test.models.auth import AuthData, PersonalData
+from ui_test.models.auth import PersonalData
+from ui_test.models.auth import AuthData
 from ui_test.pages.base_page import BasePage
 
 logger = logging.getLogger("moodle")
