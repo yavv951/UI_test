@@ -1,4 +1,5 @@
 import logging
+
 from pages.login_page import LoginPage
 
 logger = logging.getLogger("moodle")
