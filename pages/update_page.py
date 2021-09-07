@@ -1,7 +1,7 @@
 from selenium.webdriver.remote.webelement import WebElement
-from ui_test.locators.login_page_locator import BasePageLocators, UserPageLocators
-from ui_test.models.auth import AuthData
-from ui_test.pages.base_page import BasePage
+from locators.login_page_locator import BasePageLocators, UserPageLocators
+from models.auth import AuthData
+from pages.base_page import BasePage
 
 
 class UpdatePage(BasePage):

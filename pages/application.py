@@ -1,5 +1,5 @@
-from ui_test.pages.login_page import LoginPage
 import logging
+from pages.login_page import LoginPage
 
 logger = logging.getLogger("moodle")
 
