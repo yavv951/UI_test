@@ -2,7 +2,7 @@ from selenium import webdriver
 import pytest
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from ui_test.models.auth import AuthData, PersonalData
+from models.auth import AuthData, PersonalData
 from pages.application import Application
 import logging
 
@@ -19,12 +19,11 @@ def app(request):
         chrome_options.headless = True
         fixture = Application(
             webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options),
-            base_url
+            base_url,
         )
     elif headless_mode == "false":
         fixture = Application(
-            webdriver.Chrome(ChromeDriverManager().install()),
-            base_url
+            webdriver.Chrome(ChromeDriverManager().install()), base_url
         )
     else:
         raise pytest.UsageError("--headless should be true or false")
@@ -39,7 +38,7 @@ def pytest_addoption(parser):
         action="store",
         default="false",
         help="enter 'true' if you want run tests in headless mode of browser,\n"
-             "enter 'false' - if not",
+        "enter 'false' - if not",
     ),
     parser.addoption(
         "--base-url",
@@ -47,7 +46,9 @@ def pytest_addoption(parser):
         default="https://qacoursemoodle.innopolis.university/",
         help="enter base url",
     ),
-    parser.addoption("--username", action="store", default="vadim951", help="user name"),
+    parser.addoption(
+        "--username", action="store", default="vadim951", help="user name"
+    ),
     parser.addoption(
         "--password", action="store", default="Testtest@5", help="password"
     ),
@@ -58,15 +59,13 @@ def pytest_addoption(parser):
         "--user_email", action="store", default="yadutovvv@yandex.ru", help="email"
     ),
     parser.addoption(
-        "--moodle_net_profile", action="store", default="student", help="moodle_net_profile"
+        "--moodle_net_profile",
+        action="store",
+        default="student",
+        help="moodle_net_profile",
     ),
-    parser.addoption(
-        "--city", action="store", default="Kazan", help="city"
-    ),
-    parser.addoption(
-        "--about", action="store", default="Iam 28 year", help="about"
-    )
-
+    parser.addoption("--city", action="store", default="Kazan", help="city"),
+    parser.addoption("--about", action="store", default="Iam 28 year", help="about")
 
 
 @pytest.fixture
@@ -104,7 +103,7 @@ def update_user_info(app, request):
         city=city,
         timezone=timezone,
         country_code=country_code,
-        about=about
+        about=about,
     )
     app.login.update_user()
     app.login.edit_personal_data(personal_data)
