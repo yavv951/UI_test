@@ -2,7 +2,6 @@ from selenium import webdriver
 import pytest
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-
 from models.auth import AuthData
 from pages.application import Application
 import logging
@@ -33,13 +32,12 @@ def app(request):
 
 
 def pytest_addoption(parser):
-
     parser.addoption(
         "--headless",
         action="store",
         default="true",
         help="enter 'true' if you want run tests in headless mode of browser,\n"
-        "enter 'false' - if not",
+             "enter 'false' - if not",
     ),
     parser.addoption(
         "--base-url",
