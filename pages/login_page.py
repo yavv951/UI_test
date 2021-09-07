@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.remote.webelement import WebElement
 import logging
 from locators.login_page_locator import BasePageLocators, UserPageLocators
@@ -144,7 +146,7 @@ class LoginPage(BasePage):
         return self.find_element(UserPageLocators.ALT_PICTURE)
 
     def click_input_image(self):
-        return self.find_element(UserPageLocators.BUTTON_IMAGE)
+        return self.find_elements(UserPageLocators.BUTTON_IMAGE)
 
     # Дополнительная информация об имени.
     def additional_inf(self) -> WebElement:
@@ -224,6 +226,21 @@ class LoginPage(BasePage):
     def input_image(self):
         return self.find_elements(UserPageLocators.BUTTON_IMAGE)
 
+    def click_image(self):
+        """Находим само изображение"""
+        return self.find_elements(UserPageLocators.IMAGE)
+
+    def select_image(self):
+        """Находим само изображение"""
+        return self.find_element(UserPageLocators.SELECT_IMAGE)
+
+    def input_image_name(self):
+        return self.find_elements(UserPageLocators.NAME_IMAGE)
+
+    def input_name_image(self):
+        """Находим поле для ввода описания фото"""
+        return self.find_element(UserPageLocators.DESCRIPTION_IMAGE)
+
     def edit_personal_data(self, personal_data: PersonalData):
         """ Функция, которая обновляет данные
         пользователя (имя, фамилию, email и т.д.) """
@@ -236,20 +253,27 @@ class LoginPage(BasePage):
         self.select_value(self.timezone_select(), personal_data.timezone)
         self.fill_element(self.description_input(), personal_data.about)
         # кликаем на кнопку изображение пользователя
-        # self.click_element(self.moodle_picture())
-        # self.click_element(self.input_picture())
-        # self.fill_element(self.alt_picture(), personal_data.image_url)
-        # self.click_element(self.click_input_image())
-        # self.click_element(self.input_image()[1])
+        #self.click_element(self.moodle_picture())
+        #self.click_element(self.moodle_picture())
+        self.click_element(self.input_picture())
+        self.fill_element(self.alt_picture(), personal_data.image_url)
+        self.click_element(self.click_input_image()[1])
+        time.sleep(2)
+        self.click_element(self.click_image()[0])
+        self.fill_element(self.input_image_name()[30], personal_data.image_name)
+        self.click_element(self.select_image())
+        time.sleep(5)
+        self.fill_element(self.input_name_image(), personal_data.about)
+        time.sleep(3)
+        self.click_element(self.moodle_interest())
+        self.fill_element(self.form_autocomplite(), personal_data.image_inf)
         self.click_element(self.additional_inf())
+        self.delete_autocomplite()
         self.fill_element(self.first_fonetic_name(), personal_data.image_inf)
         self.fill_element(self.last_fonetic_name(), personal_data.image_inf)
         self.fill_element(self.middle_name(), personal_data.image_inf)
         self.fill_element(self.alter_name(), personal_data.image_inf)
-        self.click_element(self.moodle_interest())
-        self.fill_element(self.form_autocomplite(), personal_data.image_inf)
         self.click_element(self.click_optional())
-        self.delete_autocomplite()
         self.fill_element(self.id_number(), personal_data.image_inf)
         self.fill_element(self.institution(), personal_data.image_inf)
         self.fill_element(self.departament(), personal_data.image_inf)

@@ -32,7 +32,6 @@ class UserPageLocators:
     EMAIL_DISPLAY = (By.ID, "id_maildisplay")
     NEW_PASSWORD = (By.ID, "id_newpassword")
     SUBMIT = (By.NAME, "submitbutton")
-    CHANGE_INF = (By.ID, "yui_3_17_2_1_1630357602223_20")
     IS_CHANGE_2 = (By.ID, "user-notifications")
     IS_CHANGE = (By.CLASS_NAME, "alert-success")
     OPEN_WIN = (By.CLASS_NAME, "collapseexpand")
@@ -41,6 +40,12 @@ class UserPageLocators:
     ALT_PICTURE = (By.ID, "fileurl")
     BUTTON_IMAGE = (By.XPATH, "//*[text()='Скачать']")
     IMAGE = (By.CLASS_NAME, "fp-filename-field")
+    IMAGE_FILE = (By.CLASS_NAME, "fp-file")
+    SELECT_IMAGE = (By.XPATH, "//*[text()='Выбрать этот файл']")
+    CANCELLATION_BUTTON = (By.XPATH, "//*[text()='Отмена']")
+    DESCRIPTION_IMAGE = (By.ID, "id_imagealt")
+    NAME_IMAGE = (By.CLASS_NAME, "form-control")
+
     # Дополнительная информация об имени
     ADDITIONAL_INF = (By.XPATH, "//*[text()='Дополнительная информация об имени']")
     FIRST_FONETIC_NAME = (By.ID, "id_firstnamephonetic")

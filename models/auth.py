@@ -30,7 +30,8 @@ class PersonalData:
             about=None,
             url=None,
             image_url=None,
-            image_inf=None
+            image_inf=None,
+            image_name=None
     ):
         self.firstname = firstname
         self.lastname = lastname
@@ -43,6 +44,7 @@ class PersonalData:
         self.url = url
         self.image_url = image_url
         self.image_inf = image_inf
+        self.image_name = image_name
 
     @staticmethod
     def random():
@@ -57,6 +59,7 @@ class PersonalData:
         url = fake.url()
         image_url = fake.image_url()
         image_inf = fake.text(max_nb_chars=50)
+        image_name = random.choice(PersonalDataConstants.IMAGE_NAME)
         return PersonalData(
             firstname,
             lastname,
@@ -68,5 +71,6 @@ class PersonalData:
             about,
             url,
             image_url,
-            image_inf
+            image_inf,
+            image_name
         )
