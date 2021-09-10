@@ -16,10 +16,10 @@ def app(request):
     logger.info(f"Start moodle {base_url} with headless={headless_mode} mode")
     if headless_mode == "true":
         chrome_options = Options()
-        chrome_options.headless = False
+        chrome_options.headless = True
         fixture = Application(
             webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options),
-            base_url
+            base_url,
         )
     elif headless_mode == "false":
         fixture = Application(
@@ -37,7 +37,7 @@ def pytest_addoption(parser):
         action="store",
         default="true",
         help="enter 'true' if you want run tests in headless mode of browser,\n"
-             "enter 'false' - if not",
+        "enter 'false' - if not",
     ),
     parser.addoption(
         "--base-url",

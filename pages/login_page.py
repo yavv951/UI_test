@@ -277,4 +277,5 @@ class LoginPage(BasePage):
         self.fill_element(self.phone_2(), personal_data.image_inf)
         self.fill_element(self.address(), personal_data.image_inf)
         self.fill_element(self.input_name_image(), personal_data.about)
-        self.submit_changes()
+        time.sleep(6)
+        self.click_element(self.submit_button_prof())
