@@ -21,3 +21,7 @@ class Application:
     def open_auth_page(self):
         logger.info("open " + self.url + "/login/index.php")
         self.driver.get(self.url + "/login/index.php")
+
+    def open_managment_page(self):
+        logger.info("open " + self.url + "/course/management.php")
+        self.driver.get(self.url + "/course/management.php")

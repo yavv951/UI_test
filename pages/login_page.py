@@ -121,15 +121,11 @@ class LoginPage(BasePage):
         return self.find_element(UserPageLocators.IS_CHANGE).text
 
     def country_select(self) -> WebElement:
-        country_select = self.find_select_element(
-            UserPageLocators.COUNTRY_SELECT
-        )
+        country_select = self.find_select_element(UserPageLocators.COUNTRY_SELECT)
         return country_select
 
     def timezone_select(self) -> WebElement:
-        timezone_select = self.find_select_element(
-            UserPageLocators.TIMEZONE_SELECT
-        )
+        timezone_select = self.find_select_element(UserPageLocators.TIMEZONE_SELECT)
         return timezone_select
 
     def description_input(self) -> WebElement:
@@ -166,11 +162,11 @@ class LoginPage(BasePage):
 
     # Интересы.
     def moodle_interest(self) -> WebElement:
-        """ Находим элемент вкладка интересы """
+        """Находим элемент вкладка интересы"""
         return self.find_element(UserPageLocators.MOODLE_INTEREST)
 
     def form_autocomplite(self) -> WebElement:
-        """ Находим элемент список интересов для ввода тега """
+        """Находим элемент список интересов для ввода тега"""
         return self.find_element(UserPageLocators.FORM_AUTOCOMPLIT)
 
     def teg_autocomplite(self):
@@ -180,47 +176,47 @@ class LoginPage(BasePage):
         self.click_element(self.teg_autocomplite())
 
     def click_optional(self) -> WebElement:
-        """ Находим элемент вкладка необязательное """
+        """Находим элемент вкладка необязательное"""
         return self.find_element(UserPageLocators.OPTIONAL)
 
     def id_number(self) -> WebElement:
-        """ Находим элемент поле индивидуальный номер """
+        """Находим элемент поле индивидуальный номер"""
         return self.find_element(UserPageLocators.ID_NUMBER)
 
     def institution(self) -> WebElement:
-        """ Находим элемент поле учреждение """
+        """Находим элемент поле учреждение"""
         return self.find_element(UserPageLocators.INSTITUTION)
 
     def departament(self) -> WebElement:
-        """ Находим элемент поле отдел """
+        """Находим элемент поле отдел"""
         return self.find_element(UserPageLocators.DEPARTAMENT)
 
     def phone_1(self) -> WebElement:
-        """ Находим элемент поле телефон """
+        """Находим элемент поле телефон"""
         return self.find_element(UserPageLocators.PHONE_1)
 
     def phone_2(self) -> WebElement:
-        """ Находим элемент поле мобильный телефон """
+        """Находим элемент поле мобильный телефон"""
         return self.find_element(UserPageLocators.PHONE_2)
 
     def address(self) -> WebElement:
-        """ Находим элемент поле адрес """
+        """Находим элемент поле адрес"""
         return self.find_element(UserPageLocators.ADDRESS)
 
     def submit_button_prof(self) -> WebElement:
-        """ Находим элемент обновить профиль """
+        """Находим элемент обновить профиль"""
         return self.find_element(UserPageLocators.SUBMIT)
 
     def submit_changes(self):
-        """ Кликаем на элемент сохранить данные """
+        """Кликаем на элемент сохранить данные"""
         self.click_element(self.submit_button_prof())
 
     def button_all_sections(self) -> WebElement:
-        """ Находим элемент раскрыть все вкладки """
+        """Находим элемент раскрыть все вкладки"""
         return self.find_element(UserPageLocators.OPEN_WIN)
 
     def open_all_sections(self):
-        """ Кликаем на элемент раскрыть все вкладки """
+        """Кликаем на элемент раскрыть все вкладки"""
         self.click_element(self.button_all_sections())
 
     def input_image(self):
@@ -241,9 +237,12 @@ class LoginPage(BasePage):
         """Находим поле для ввода описания фото"""
         return self.find_element(UserPageLocators.DESCRIPTION_IMAGE)
 
+    def click_on_button_urlimage(self):
+        return self.find_element(UserPageLocators.IMAGE_DOWLOUD_URL)
+
     def edit_personal_data(self, personal_data: PersonalData):
-        """ Функция, которая обновляет данные
-        пользователя (имя, фамилию, email и т.д.) """
+        """Функция, которая обновляет данные
+        пользователя (имя, фамилию, email и т.д.)"""
         self.fill_element(self.firstname_input(), personal_data.firstname)
         self.fill_element(self.lastname_input(), personal_data.lastname)
         self.fill_element(self.input_email(), personal_data.user_email)
@@ -253,17 +252,14 @@ class LoginPage(BasePage):
         self.select_value(self.timezone_select(), personal_data.timezone)
         self.fill_element(self.description_input(), personal_data.about)
         # кликаем на кнопку изображение пользователя
-        #self.click_element(self.moodle_picture())
-        #self.click_element(self.moodle_picture())
         self.click_element(self.input_picture())
+        self.click_element(self.click_on_button_urlimage())
         self.fill_element(self.alt_picture(), personal_data.image_url)
         self.click_element(self.click_input_image()[1])
         time.sleep(2)
         self.click_element(self.click_image()[0])
         self.fill_element(self.input_image_name()[30], personal_data.image_name)
         self.click_element(self.select_image())
-        time.sleep(5)
-        self.fill_element(self.input_name_image(), personal_data.about)
         time.sleep(3)
         self.click_element(self.moodle_interest())
         self.fill_element(self.form_autocomplite(), personal_data.image_inf)
@@ -280,4 +276,5 @@ class LoginPage(BasePage):
         self.fill_element(self.phone_1(), personal_data.image_inf)
         self.fill_element(self.phone_2(), personal_data.image_inf)
         self.fill_element(self.address(), personal_data.image_inf)
+        self.fill_element(self.input_name_image(), personal_data.about)
         self.submit_changes()
