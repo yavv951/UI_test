@@ -14,6 +14,13 @@ class BasePage:
         )
         return element
 
+    def find_clickable_element(self, locator, wait_time=10):
+        element = WebDriverWait(self.app.driver, wait_time).until(
+            EC.element_to_be_clickable(locator),
+            message=f"Element not clickable {locator}",
+        )
+        return element
+
     def find_elements(self, locator):
         return self.app.driver.find_elements(*locator)
 
@@ -28,6 +35,10 @@ class BasePage:
 
     def find_select_element(self, locator):
         select_element = Select(self.find_element(locator))
+        return select_element
+
+    def find_select_element_2(self, locator):
+        select_element = Select(self.find_clickable_element(locator))
         return select_element
 
     def select_value(self, select_element, value):

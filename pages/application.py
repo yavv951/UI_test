@@ -1,5 +1,6 @@
 import logging
 
+from pages.add_course_page import AddCoursePage
 from pages.login_page import LoginPage
 
 logger = logging.getLogger("moodle")
@@ -10,6 +11,7 @@ class Application:
         self.driver = driver
         self.url = url
         self.login = LoginPage(self)
+        self.add_course = AddCoursePage(self)
 
     def quit(self):
         self.driver.quit()

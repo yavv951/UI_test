@@ -17,7 +17,7 @@ def app(request):
     logger.info(f"Start moodle {base_url} with headless={headless_mode} mode")
     if headless_mode == "true":
         chrome_options = Options()
-        chrome_options.headless = False
+        chrome_options.headless = True
         fixture = Application(
             webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options),
             base_url
@@ -84,7 +84,7 @@ def invalid_auth(app):
     app.login.auth(data)
 
 
-# Фикстура задать имя,фамилия и mail по умолчанию
+# Фикстура задать имя,фамилия,mail и т.д.
 @pytest.fixture
 def update_user_info(app, request):
     firstname = request.config.getoption("--firstname")

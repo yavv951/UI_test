@@ -31,14 +31,14 @@ class UserPageLocators:
     DESCRIPTION = (By.ID, "id_description_editoreditable")
     EMAIL_DISPLAY = (By.ID, "id_maildisplay")
     NEW_PASSWORD = (By.ID, "id_newpassword")
-    SUBMIT = (By.NAME, "submitbutton")
+    SUBMIT = (By.ID, "id_submitbutton")
     IS_CHANGE_2 = (By.ID, "user-notifications")
     IS_CHANGE = (By.CLASS_NAME, "alert-success")
     OPEN_WIN = (By.CLASS_NAME, "collapseexpand")
     MOODLE_PICTURE = (By.XPATH, "//*[text()='Изображение пользователя']")
     INPUT_PICTURE = (By.CLASS_NAME, "dndupload-arrow")
     ALT_PICTURE = (By.ID, "fileurl")
-    BUTTON_IMAGE = (By.XPATH, "//*[text()='Скачать']")
+    BUTTON_IMAGE = (By.CLASS_NAME, "fp-login-submit")
     IMAGE = (By.CLASS_NAME, "fp-filename-field")
     IMAGE_FILE = (By.CLASS_NAME, "fp-file")
     SELECT_IMAGE = (By.XPATH, "//*[text()='Выбрать этот файл']")
@@ -73,11 +73,12 @@ class AddCourse:
     ADMIN = (By.XPATH, "//*[text()='Администрирование']")
     COURSE = (By.XPATH, "//*[text()='Курсы']")
     ADD_COURSE = (By.XPATH, "//*[text()='Добавить курс']")
-    FULLNAME_COURSE = (By.ID, "id_error_fullname")
-    SHORTNAME_COURSE = (By.ID, "id_error_shortname")
+    FULLNAME_COURSE = (By.ID, "id_fullname")
+    SHORTNAME_COURSE = (By.ID, "id_shortname")
     DELETE_AUTOCOMPLIT = (By.XPATH, '//*[span="× "]')
     FORM_AUTOCONPLITE_DOWNARROW = (By.CLASS_NAME, "form-autocomplete-downarrow")
     VISIBLE = (By.ID, "id_visible")
+    COLLAPSE = (By.CLASS_NAME, "collapseexpand")
     # Старт курса
     DAY_DATE_START = (By.ID, "id_startdate_day")
     MONTH_DATE_START = (By.ID, "id_startdate_month")
@@ -87,13 +88,13 @@ class AddCourse:
     # Конец курса
     DAY_DATE_END = (By.ID, "id_enddate_day")
     MONTH_DATE_END = (By.ID, "id_enddate_month")
-    YEAR_DATEEND = (By.ID, "id_enddate_year")
+    YEAR_DATE_END = (By.ID, "id_enddate_year")
     HOUR_DATE_END = (By.ID, "id_enddate_hour")
     MINUTE_DATE_END = (By.ID, "id_enddate_minute")
-    # Загружка изображения
+    # Загрузка изображения
     ID_NUMBER = (By.ID, "id_idnumber")
     COURSE_DESCRIPTION = (By.ID, "id_summary_editoreditable")
-    UPLOADING_FILES = (By.CLASS_NAME, "dndupload-arrow")
+    UPLOADING_FILES = (By.CLASS_NAME, "fp-btn-add")
     IMAGE_DOWLOUD_URL = (By.XPATH, "//*[text()='Загрузка файлов по URL']")
     IMAGE_DOWLOUD = (By.XPATH, "//*[text()='Загрузить файл']")
     ALT_PICTURE = (By.ID, "fileurl")
@@ -101,30 +102,33 @@ class AddCourse:
     IMAGE = (By.CLASS_NAME, "fp-filename-field")  # Выбпать картинку
     NAME_IMAGE = (By.CLASS_NAME, "form-control")
     SELECT_IMAGE = (By.XPATH, "//*[text()='Выбрать этот файл']")
+    REPO_UPLOAD = (By.CSS_SELECTOR, "input[type='file']")
+    IMAGE_DOWLOUD_PATH = (By.XPATH, "//*[text()='Загрузить этот файл']")
     # Формат курса
-    FORM_COURSE = (By.ID, "id_courseformathdr")
+    FORM_COURSE = (By.ID, "id_format")
     ID_NUMSECTION = (By.ID, "id_numsections")
     HIDDENSECTION = (By.ID, "id_hiddensections")
     COURSEDISPLAY = (By.ID, "id_coursedisplay")
-    # _____
+    # Внешний вид
     APPERARANCE = (By.ID, "id_appearancehdr")
     LANGUAGE = (By.ID, "id_lang")
     NEWSITEMS = (By.ID, "id_newsitems")
     SHOWGRADES = (By.ID, "id_showgrades")
     SHOWTEPORTS = (By.ID, "id_showreports")
     SHOW_ACTIVITY_DATE = (By.ID, "id_showactivitydates")
-    # _____
+    # Файлы и загрузки
     FILES_DOWNLOADS = (By.XPATH, "//*[text()='Файлы и загрузки']")
     MAXBYTES = (By.ID, "id_maxbytes")
-    # _____
+    # Отслеживание выполнения
     TRACKING_PROGRESS = (By.XPATH, "//*[text()='Отслеживание выполнения']")
     ENABLECOMPLETION = (By.ID, "id_enablecompletion")
     SHOWCOMPLETION = (By.ID, "id_showcompletionconditions")
-    # _____
+    # Группы
     GROUP = (By.XPATH, "//*[text()='Группы']")
     GROUPMODE_ERROR = (By.ID, "id_error_groupmode")
     GROUPMODE_DEFORCE = (By.ID, "id_groupmodeforce")
     DEFAULTGROUPING = (By.ID, "id_defaultgroupingid")
+    # Теги
     FORM_TAG = (By.CSS_SELECTOR, 'input[placeholder="Введите теги..."]')
     # _____
     SAVE_AND_SHOW = (By.ID, "id_saveanddisplay")

@@ -1,6 +1,6 @@
 import random
 from faker import Faker
-from common.constants import PersonalDataConstants
+from common.constants import PersonalDataConstants, CourseDataConstants
 
 fake = Faker()
 
@@ -57,8 +57,8 @@ class PersonalData:
         country_code = fake.country_code()
         about = fake.text(max_nb_chars=200)
         url = fake.url()
-        image_url = fake.image_url()
-        image_inf = fake.text(max_nb_chars=50)
+        image_url = fake.image_url(width=100,height=100)
+        image_inf = fake.text(max_nb_chars=30)
         image_name = random.choice(PersonalDataConstants.IMAGE_NAME)
         return PersonalData(
             firstname,
@@ -73,4 +73,103 @@ class PersonalData:
             image_url,
             image_inf,
             image_name
+        )
+
+
+class CourseData:
+    def __init__(
+            self,
+            fullname_course=None,
+            shortname_course=None,
+            visible=None,
+            day=None,
+            month=None,
+            start_year=None,
+            end_year=None,
+            hour=None,
+            minute=None,
+            id_number=None,
+            about_course=None,
+            format_course=None,
+            section=None,
+            hiddensection=None,
+            coursedisplay=None,
+            language=None,
+            newsitems=None,
+            showgrades=None,
+            showteports=None,
+            yes_or_no=None,
+            maxbytes=None,
+            flow=None
+    ):
+        self.fullname_course = fullname_course
+        self.shortname_course = shortname_course
+        self.visible = visible
+        self.day = day
+        self.month = month
+        self.start_year = start_year
+        self.end_year = end_year
+        self.hour = hour
+        self.minute = minute
+        self.id_number = id_number
+        self.about_course = about_course
+        self.format_course = format_course
+        self.section = section
+        self.hiddensection = hiddensection
+        self.coursedisplay = coursedisplay
+        self.language = language
+        self.newsitems = newsitems
+        self.showgrades = showgrades
+        self.showteports = showteports
+        self.yes_or_no = yes_or_no
+        self.maxbytes = maxbytes
+        self.flow = flow
+
+    @staticmethod
+    def random():
+        fullname_course = fake.text(max_nb_chars=10),
+        shortname_course = fake.text(max_nb_chars=5),
+        visible = random.choice(CourseDataConstants.VISIBLE),
+        day = random.choice(CourseDataConstants.DAY),
+        month = random.choice(CourseDataConstants.MONTH),
+        start_year = random.choice(CourseDataConstants.START_YEAR),
+        end_year = random.choice(CourseDataConstants.END_YEAR),
+        hour = random.choice(CourseDataConstants.YES_NO),
+        minute = random.choice(CourseDataConstants.YES_NO),
+        id_number = random.randint(1, 100),
+        about_course = fake.text(max_nb_chars=200),
+        format_course = random.choice(CourseDataConstants.FORMAT_COURSE),
+        section = random.choice(CourseDataConstants.YES_NO),
+        hiddensection = random.choice(CourseDataConstants.HIDDENSECTION),
+        coursedisplay = random.choice(CourseDataConstants.COURSEDISPLAY),
+        language = random.choice(CourseDataConstants.LANGUAGE),
+        newsitems = random.randint(0, 10),
+        showgrades = random.choice(CourseDataConstants.YES_NO),
+        showteports = random.choice(CourseDataConstants.YES_NO),
+        yes_or_no = random.choice(CourseDataConstants.YES_NO),
+        maxbytes = random.choice(CourseDataConstants.MAXBYTE),
+        flow = 0
+        return CourseData(
+            fullname_course,
+            shortname_course,
+            visible,
+            day,
+            month,
+            start_year,
+            end_year,
+            hour,
+            minute,
+            id_number,
+            about_course,
+            format_course,
+            section,
+            hiddensection,
+            coursedisplay,
+            language,
+            newsitems,
+            showgrades,
+            showteports,
+            yes_or_no,
+            maxbytes,
+            flow
         )

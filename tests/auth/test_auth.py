@@ -1,7 +1,11 @@
+import os.path
+import time
 import pytest
 from common.constants import LoginConstants
-from models.auth import AuthData, PersonalData
+from models.auth import AuthData, PersonalData, CourseData
 
+current_dir = os.path.dirname(__file__)
+user_images_directory = os.path.join(current_dir, "user_images")
 
 class TestAuth:
     def test_main_page(self, app):
@@ -61,3 +65,22 @@ class TestAuth:
         app.login.edit_personal_data(personal_data)
         # assert app.login.is_change(), "Is not change!"
         assert LoginConstants.IS_CHANGE_INF in app.login.is_change(), "Is not change!"
+
+    @pytest.mark.parametrize(
+        "image_file",
+        [
+            os.path.join(user_images_directory, image)
+            for image in os.listdir(user_images_directory)
+        ],
+    )
+    def test_add_course(self, app, auth, image_file):
+        app.add_course.switching_adding_course()
+        app.add_course.open_all_tabs()
+        course_data = CourseData.random()
+        app.add_course.fill_name_course(course_data)
+        app.add_course.fill_course_description()
+        app.add_course.choose_course_image_file(image_file)
+        # app.add_course.fill_format_course(course_data)
+        # app.add_course.fill_appearance_tab(course_data)
+        app.add_course.click_submit_save()
+        assert 1 == 1, "Fauld"
