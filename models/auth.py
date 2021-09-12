@@ -19,19 +19,19 @@ class AuthData:
 
 class PersonalData:
     def __init__(
-            self,
-            firstname=None,
-            lastname=None,
-            user_email=None,
-            moodle_net_profile=None,
-            city=None,
-            timezone=None,
-            country_code=None,
-            about=None,
-            url=None,
-            image_url=None,
-            image_inf=None,
-            image_name=None
+        self,
+        firstname=None,
+        lastname=None,
+        user_email=None,
+        moodle_net_profile=None,
+        city=None,
+        timezone=None,
+        country_code=None,
+        about=None,
+        url=None,
+        image_url=None,
+        image_inf=None,
+        image_name=None,
     ):
         self.firstname = firstname
         self.lastname = lastname
@@ -57,7 +57,7 @@ class PersonalData:
         country_code = fake.country_code()
         about = fake.text(max_nb_chars=200)
         url = fake.url()
-        image_url = fake.image_url(width=100,height=100)
+        image_url = fake.image_url(width=100, height=100)
         image_inf = fake.text(max_nb_chars=30)
         image_name = random.choice(PersonalDataConstants.IMAGE_NAME)
         return PersonalData(
@@ -72,35 +72,35 @@ class PersonalData:
             url,
             image_url,
             image_inf,
-            image_name
+            image_name,
         )
 
 
 class CourseData:
     def __init__(
-            self,
-            fullname_course=None,
-            shortname_course=None,
-            visible=None,
-            day=None,
-            month=None,
-            start_year=None,
-            end_year=None,
-            hour=None,
-            minute=None,
-            id_number=None,
-            about_course=None,
-            format_course=None,
-            section=None,
-            hiddensection=None,
-            coursedisplay=None,
-            language=None,
-            newsitems=None,
-            showgrades=None,
-            showteports=None,
-            yes_or_no=None,
-            maxbytes=None,
-            flow=None
+        self,
+        fullname_course=None,
+        shortname_course=None,
+        visible=None,
+        day=None,
+        month=None,
+        start_year=None,
+        end_year=None,
+        hour=None,
+        minute=None,
+        id_number=None,
+        about_course=None,
+        format_course=None,
+        section=None,
+        hiddensection=None,
+        coursedisplay=None,
+        language=None,
+        newsitems=None,
+        showgrades=None,
+        showteports=None,
+        yes_or_no=None,
+        maxbytes=None,
+        flow=None,
     ):
         self.fullname_course = fullname_course
         self.shortname_course = shortname_course
@@ -127,27 +127,27 @@ class CourseData:
 
     @staticmethod
     def random():
-        fullname_course = fake.text(max_nb_chars=10),
-        shortname_course = fake.text(max_nb_chars=5),
-        visible = random.choice(CourseDataConstants.VISIBLE),
-        day = random.choice(CourseDataConstants.DAY),
-        month = random.choice(CourseDataConstants.MONTH),
-        start_year = random.choice(CourseDataConstants.START_YEAR),
-        end_year = random.choice(CourseDataConstants.END_YEAR),
-        hour = random.choice(CourseDataConstants.YES_NO),
-        minute = random.choice(CourseDataConstants.YES_NO),
-        id_number = random.randint(1, 100),
-        about_course = fake.text(max_nb_chars=200),
-        format_course = random.choice(CourseDataConstants.FORMAT_COURSE),
-        section = random.choice(CourseDataConstants.YES_NO),
-        hiddensection = random.choice(CourseDataConstants.HIDDENSECTION),
-        coursedisplay = random.choice(CourseDataConstants.COURSEDISPLAY),
-        language = random.choice(CourseDataConstants.LANGUAGE),
-        newsitems = random.randint(0, 10),
-        showgrades = random.choice(CourseDataConstants.YES_NO),
-        showteports = random.choice(CourseDataConstants.YES_NO),
-        yes_or_no = random.choice(CourseDataConstants.YES_NO),
-        maxbytes = random.choice(CourseDataConstants.MAXBYTE),
+        fullname_course = (fake.text(max_nb_chars=10),)
+        shortname_course = (fake.text(max_nb_chars=5),)
+        visible = (random.choice(CourseDataConstants.VISIBLE),)
+        day = (random.choice(CourseDataConstants.DAY),)
+        month = (random.choice(CourseDataConstants.MONTH),)
+        start_year = (random.choice(CourseDataConstants.START_YEAR),)
+        end_year = (random.choice(CourseDataConstants.END_YEAR),)
+        hour = (random.choice(CourseDataConstants.YES_NO),)
+        minute = (random.choice(CourseDataConstants.YES_NO),)
+        id_number = (random.randint(1, 100),)
+        about_course = (fake.text(max_nb_chars=200),)
+        format_course = (random.choice(CourseDataConstants.FORMAT_COURSE),)
+        section = (random.choice(CourseDataConstants.YES_NO),)
+        hiddensection = (random.choice(CourseDataConstants.HIDDENSECTION),)
+        coursedisplay = (random.choice(CourseDataConstants.COURSEDISPLAY),)
+        language = (random.choice(CourseDataConstants.LANGUAGE),)
+        newsitems = (random.randint(0, 10),)
+        showgrades = (random.choice(CourseDataConstants.YES_NO),)
+        showteports = (random.choice(CourseDataConstants.YES_NO),)
+        yes_or_no = (random.choice(CourseDataConstants.YES_NO),)
+        maxbytes = (random.choice(CourseDataConstants.MAXBYTE),)
         flow = 0
         return CourseData(
             fullname_course,
@@ -171,5 +171,5 @@ class CourseData:
             showteports,
             yes_or_no,
             maxbytes,
-            flow
+            flow,
         )

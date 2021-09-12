@@ -6,6 +6,7 @@ from models.auth import AuthData, PersonalData, CourseData
 current_dir = os.path.dirname(__file__)
 user_images_directory = os.path.join(current_dir, "user_images")
 
+
 class TestAuth:
     def test_main_page(self, app):
         app.open_main_page()

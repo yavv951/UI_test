@@ -10,7 +10,6 @@ logger = logging.getLogger("moodle")
 
 
 class AddCoursePage(BasePage):
-
     def icon_fa_bars(self):
         return self.find_clickable_element(AddCourse.SABARS)
 
@@ -45,7 +44,7 @@ class AddCoursePage(BasePage):
         return self.find_clickable_element(AddCourse.COLLAPSE)
 
     def open_all_tabs(self):
-        """ Функция открытия всех вкладок"""
+        """Функция открытия всех вкладок"""
         self.click_element(self.collaps_all_element())
 
     def full_name_course(self):
@@ -104,7 +103,7 @@ class AddCoursePage(BasePage):
         return self.find_element(AddCourse.COURSE_DESCRIPTION)
 
     def fill_course_description(self):
-        """ Функция описание курса """
+        """Функция описание курса"""
         self.fill_element(self.course_description(), "course_data.about")
 
     def photo_course(self) -> WebElement:
@@ -124,7 +123,7 @@ class AddCoursePage(BasePage):
         self.click_element(self.image_dowload())
 
     def choose_course_image_file(self, image_file):
-        """ Функция загрузки фото """
+        """Функция загрузки фото"""
         self.click_element(self.photo_course())
         self.click_image_dowload()
         self.fill_element(self.repo_upload_file(), image_file)
@@ -148,10 +147,12 @@ class AddCoursePage(BasePage):
         return coursedisplay
 
     def fill_format_course(self, course_data: CourseData):
-        logger.info(f'формат курса "{course_data.format_course}, '
-                    f'ID номер {course_data.section}, '
-                    f'скрытые секции {course_data.hiddensection}, '
-                    f'представление курса {course_data.coursedisplay}"')
+        logger.info(
+            f'формат курса "{course_data.format_course}, '
+            f"ID номер {course_data.section}, "
+            f"скрытые секции {course_data.hiddensection}, "
+            f'представление курса {course_data.coursedisplay}"'
+        )
         time.sleep(5)
         self.select_value(self.format_course(), course_data.format_course)
         time.sleep(10)
