@@ -1,9 +1,8 @@
 import logging
 import time
-
 from selenium.webdriver.remote.webelement import WebElement
 from locators.login_page_locator import AddCourse
-from models.auth import PersonalData, CourseData
+from models.auth import CourseData
 
 from pages.base_page import BasePage
 

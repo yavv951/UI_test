@@ -1,5 +1,4 @@
 import os.path
-import time
 import pytest
 from common.constants import LoginConstants
 from models.auth import AuthData, PersonalData, CourseData

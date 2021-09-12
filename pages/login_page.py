@@ -1,5 +1,3 @@
-import time
-
 from selenium.webdriver.remote.webelement import WebElement
 import logging
 from locators.login_page_locator import BasePageLocators, UserPageLocators
