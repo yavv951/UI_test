@@ -9,7 +9,7 @@
 ***
 
 1. Создайте отдельную директорию на локальном компьютере
-2. Скачайте все файлы которые расположены в [директории](https://github.com/berpress/ui_dress_tests) <br>
+2. Скачайте все файлы которые расположены в [директории](https://github.com/yavv951/UI_test) <br>
    git clone https://github.com/berpress/ui_dress_tests
 3. Откройте проект
 4. Установите все пакеты, которые указаны в файле requirements.txt <br>

@@ -1,7 +1,10 @@
 import os.path
+import time
+
 import pytest
 from common.constants import LoginConstants
 from models.auth import AuthData, PersonalData, CourseData
+from pages.application import Application
 
 current_dir = os.path.dirname(__file__)
 user_images_directory = os.path.join(current_dir, "user_images")
@@ -73,14 +76,24 @@ class TestAuth:
             for image in os.listdir(user_images_directory)
         ],
     )
-    def test_add_course(self, app, auth, image_file):
+    def test_add_course(self, app, auth,image_file):
         app.add_course.switching_adding_course()
         app.add_course.open_all_tabs()
         course_data = CourseData.random()
         app.add_course.fill_name_course(course_data)
         app.add_course.fill_course_description()
         app.add_course.choose_course_image_file(image_file)
+        app.add_course.fill_format_course(course_data)
+        app.add_course.fill_appearance_tab(course_data)
+        app.add_course.click_submit_save()
+        assert 1 == 1, "Fauld"
+
+    def test_delete_course(self, app, auth):
+        app.open_managment_page()
+        time.sleep(5)
+        app.add_course.delete_course()
+        time.sleep(5)
         # app.add_course.fill_format_course(course_data)
         # app.add_course.fill_appearance_tab(course_data)
-        app.add_course.click_submit_save()
+        #app.add_course.click_submit_save()
         assert 1 == 1, "Fauld"

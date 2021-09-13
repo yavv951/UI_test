@@ -13,8 +13,15 @@ class AddCoursePage(BasePage):
     def icon_fa_bars(self):
         return self.find_clickable_element(AddCourse.SABARS)
 
+    def media_body_elements(self):
+        return self.find_elements(AddCourse.MEDIA_BODY)
+
     def click_on_icon_fa_bars(self):
-        self.click_element(self.icon_fa_bars())
+        elements = self.media_body_elements()
+        if len(elements) > 0:
+            self.click_on_admin_button()
+        else:
+            self.click_element(self.icon_fa_bars())
 
     def admin_button(self):
         return self.find_clickable_element(AddCourse.ADMIN)
@@ -131,59 +138,57 @@ class AddCoursePage(BasePage):
 
     # Заполнение вкладки формат курса
     def format_course(self):
-        format_course = self.find_select_element(AddCourse.FORM_COURSE)
+        format_course = self.find_select_element_2(AddCourse.FORM_COURSE)
         return format_course
 
     def id_numsection(self):
-        section = self.find_select_element(AddCourse.ID_NUMSECTION)
+        section = self.find_select_element_2(AddCourse.ID_NUMSECTION)
         return section
 
     def hidden_sections(self):
-        hiddensection = self.find_select_element(AddCourse.HIDDENSECTION)
+        hiddensection = self.find_select_element_2(AddCourse.HIDDENSECTION)
         return hiddensection
 
     def presentetion_section(self):
-        coursedisplay = self.find_select_element(AddCourse.COURSEDISPLAY)
+        coursedisplay = self.find_select_element_2(AddCourse.COURSEDISPLAY)
         return coursedisplay
 
     def fill_format_course(self, course_data: CourseData):
-        logger.info(
-            f'формат курса "{course_data.format_course}, '
-            f"ID номер {course_data.section}, "
-            f"скрытые секции {course_data.hiddensection}, "
-            f'представление курса {course_data.coursedisplay}"'
-        )
-        time.sleep(5)
-        self.select_value(self.format_course(), course_data.format_course)
-        time.sleep(10)
+        logger.info(f'ID номер {course_data.section}, '
+                    f'скрытые секции {course_data.hiddensection}, '
+                    f'представление курса {course_data.coursedisplay}')
+        #self.select_value(self.format_course(), course_data.format_course)
         self.select_value(self.id_numsection(), course_data.section)
-        time.sleep(10)
         self.select_value(self.hidden_sections(), course_data.hiddensection)
-        time.sleep(10)
         self.select_value(self.presentetion_section(), course_data.coursedisplay)
 
     # Заполнение вкладки внешний вид
     def base_language(self):
-        return self.find_element(AddCourse.LANGUAGE)
+        base_language = self.find_select_element_2(AddCourse.LANGUAGE)
+        return base_language
 
     def newsitems(self):
-        return self.find_element(AddCourse.NEWSITEMS)
+        newsitems = self.find_select_element_2(AddCourse.NEWSITEMS)
+        return newsitems
 
     def showgrades(self):
-        return self.find_element(AddCourse.SHOWGRADES)
+        showgrades = self.find_select_element_2(AddCourse.SHOWGRADES)
+        return showgrades
 
     def showteports(self):
-        return self.find_element(AddCourse.SHOWTEPORTS)
+        showteports = self.find_select_element_2(AddCourse.SHOWTEPORTS)
+        return showteports
 
     def show_activity_date(self):
-        return self.find_element(AddCourse.SHOW_ACTIVITY_DATE)
+        activity_date = self.find_select_element_2(AddCourse.SHOW_ACTIVITY_DATE)
+        return activity_date
 
     def fill_appearance_tab(self, course_data: CourseData):
         self.select_value(self.base_language(), course_data.language)
         self.select_value(self.newsitems(), course_data.newsitems)
         self.select_value(self.showgrades(), course_data.showgrades)
         self.select_value(self.showteports(), course_data.showteports)
-        self.select_value(self.show_activity_date, course_data.yes_or_no)
+        self.select_value(self.show_activity_date(), course_data.yes_or_no)
 
     # Размер файла
     def max_files_maxbytes(self):
@@ -218,3 +223,10 @@ class AddCoursePage(BasePage):
 
     def click_submit_save(self):
         self.click_element(self.submit_save())
+
+    def delete_course(self):
+        return self.find_elements(AddCourse.DELETE_COURSE)
+
+    def click_delete_course(self):
+        self.click_element(self.delete_course()[2])
+

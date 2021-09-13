@@ -127,28 +127,28 @@ class CourseData:
 
     @staticmethod
     def random():
-        fullname_course = (fake.text(max_nb_chars=10),)
-        shortname_course = (fake.text(max_nb_chars=5),)
-        visible = (random.choice(CourseDataConstants.VISIBLE),)
-        day = (random.choice(CourseDataConstants.DAY),)
-        month = (random.choice(CourseDataConstants.MONTH),)
-        start_year = (random.choice(CourseDataConstants.START_YEAR),)
-        end_year = (random.choice(CourseDataConstants.END_YEAR),)
-        hour = (random.choice(CourseDataConstants.YES_NO),)
-        minute = (random.choice(CourseDataConstants.YES_NO),)
-        id_number = (random.randint(1, 100),)
-        about_course = (fake.text(max_nb_chars=200),)
-        format_course = (random.choice(CourseDataConstants.FORMAT_COURSE),)
-        section = (random.choice(CourseDataConstants.YES_NO),)
-        hiddensection = (random.choice(CourseDataConstants.HIDDENSECTION),)
-        coursedisplay = (random.choice(CourseDataConstants.COURSEDISPLAY),)
-        language = (random.choice(CourseDataConstants.LANGUAGE),)
-        newsitems = (random.randint(0, 10),)
-        showgrades = (random.choice(CourseDataConstants.YES_NO),)
-        showteports = (random.choice(CourseDataConstants.YES_NO),)
-        yes_or_no = (random.choice(CourseDataConstants.YES_NO),)
-        maxbytes = (random.choice(CourseDataConstants.MAXBYTE),)
-        flow = 0
+        fullname_course = fake.text(max_nb_chars=10)
+        shortname_course = fake.text(max_nb_chars=5)
+        visible = random.choice(CourseDataConstants.VISIBLE)
+        day = random.choice(CourseDataConstants.DAY)
+        month = random.choice(CourseDataConstants.MONTH)
+        start_year = random.choice(CourseDataConstants.START_YEAR)
+        end_year = random.choice(CourseDataConstants.END_YEAR)
+        hour = random.choice(CourseDataConstants.YES_NO)
+        minute = random.choice(CourseDataConstants.YES_NO)
+        id_number = random.choice(CourseDataConstants.MONTH)
+        about_course = fake.text(max_nb_chars=200)
+        format_course = random.choice(CourseDataConstants.FORMAT_COURSE)
+        section = random.choice(CourseDataConstants.YES_NO)
+        hiddensection = random.choice(CourseDataConstants.HIDDENSECTION)
+        coursedisplay = random.choice(CourseDataConstants.COURSEDISPLAY)
+        language = random.choice(CourseDataConstants.LANGUAGE)
+        newsitems = random.choice(CourseDataConstants.YES_NO)
+        showgrades = random.choice(CourseDataConstants.YES_NO)
+        showteports = random.choice(CourseDataConstants.YES_NO)
+        yes_or_no = random.choice(CourseDataConstants.YES_NO)
+        maxbytes = random.choice(CourseDataConstants.MAXBYTE)
+        flow = "0"
         return CourseData(
             fullname_course,
             shortname_course,
@@ -171,5 +171,5 @@ class CourseData:
             showteports,
             yes_or_no,
             maxbytes,
-            flow,
+            flow
         )

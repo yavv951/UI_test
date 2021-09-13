@@ -69,6 +69,7 @@ class UserPageLocators:
 
 
 class AddCourse:
+    MEDIA_BODY = (By.CLASS_NAME, "media-body")
     SABARS = (By.CLASS_NAME, "fa-bars")
     ADMIN = (By.XPATH, "//*[text()='Администрирование']")
     COURSE = (By.XPATH, "//*[text()='Курсы']")
@@ -130,13 +131,15 @@ class AddCourse:
     DEFAULTGROUPING = (By.ID, "id_defaultgroupingid")
     # Теги
     FORM_TAG = (By.CSS_SELECTOR, 'input[placeholder="Введите теги..."]')
-    # _____
     SAVE_AND_SHOW = (By.ID, "id_saveanddisplay")
-    # _____
     NAME_COURSE = (By.CLASS_NAME, "page-context-header")
-    # _____
     CHECK_BOX_COURSE = (By.CLASS_NAME, "custom-checkbox mr-1 ")
-    DELETE_COURSE = (By.CLASS_NAME, "action-delete")
+    DELETE_COURSE = (By.CLASS_NAME, "fa fa-trash")
     DELETE = (By.XPATH, "//button[text()='Удалить']")
     RESUME = (By.XPATH, "//button[text()='Продолжить']")
     ALLERT = (By.CLASS_NAME, "alert-success")
+    # Удаление курса
+
+
+
+
