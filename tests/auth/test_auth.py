@@ -90,10 +90,10 @@ class TestAuth:
 
     def test_delete_course(self, app, auth):
         app.open_managment_page()
-        time.sleep(5)
-        app.add_course.delete_course()
-        time.sleep(5)
+        app.add_course.click_delete_course()
+        app.add_course.delete_button()
+
         # app.add_course.fill_format_course(course_data)
         # app.add_course.fill_appearance_tab(course_data)
         #app.add_course.click_submit_save()
-        assert 1 == 1, "Fauld"
+        assert 1 ==1, "Fauld"

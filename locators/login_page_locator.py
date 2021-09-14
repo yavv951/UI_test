@@ -134,10 +134,10 @@ class AddCourse:
     SAVE_AND_SHOW = (By.ID, "id_saveanddisplay")
     NAME_COURSE = (By.CLASS_NAME, "page-context-header")
     CHECK_BOX_COURSE = (By.CLASS_NAME, "custom-checkbox mr-1 ")
-    DELETE_COURSE = (By.CLASS_NAME, "fa fa-trash")
+    DELETE_COURSE = (By.CLASS_NAME, "action-delete")
     DELETE = (By.XPATH, "//button[text()='Удалить']")
     RESUME = (By.XPATH, "//button[text()='Продолжить']")
-    ALLERT = (By.CLASS_NAME, "alert-success")
+    ALLERT = (By.CLASS_NAME, "alert-block")
     # Удаление курса
 
 

@@ -184,6 +184,7 @@ class AddCoursePage(BasePage):
         return activity_date
 
     def fill_appearance_tab(self, course_data: CourseData):
+        """ Функция заполнения вкладки внешний вид"""
         self.select_value(self.base_language(), course_data.language)
         self.select_value(self.newsitems(), course_data.newsitems)
         self.select_value(self.showgrades(), course_data.showgrades)
@@ -225,8 +226,25 @@ class AddCoursePage(BasePage):
         self.click_element(self.submit_save())
 
     def delete_course(self):
-        return self.find_elements(AddCourse.DELETE_COURSE)
+        return self.find_elements(AddCourse.DELETE_COURSE)[1]
 
     def click_delete_course(self):
-        self.click_element(self.delete_course()[2])
+        self.click_element(self.delete_course())
 
+    def delete_button(self):
+        return self.find_clickable_element(AddCourse.DELETE)
+
+    def click_delete_button(self):
+        self.click_element(self.delete_button())
+
+    def delete_blocks(self):
+        return self.find_elements(AddCourse.ALLERT)
+
+    def choose_delete_blocks(self):
+        logger.info(f'ID номер {len(self.delete_blocks)}')
+        blocks = self.find_elements(AddCourse.ALLERT)
+        if len(blocks) > 1:
+
+
+            return True
+        return False
