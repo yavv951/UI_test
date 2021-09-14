@@ -60,8 +60,10 @@ class AddCoursePage(BasePage):
         return self.find_element(AddCourse.SHORTNAME_COURSE)
 
     def fill_name_course(self, course_data: CourseData):
-        logger.info(f"Полное имя курса {course_data.fullname_course} "
-                    f"Краткое название курса {course_data.shortname_course}")
+        logger.info(
+            f"Полное имя курса {course_data.fullname_course} "
+            f"Краткое название курса {course_data.shortname_course}"
+        )
         self.fill_element(self.full_name_course(), course_data.fullname_course)
         self.fill_element(self.short_name_course(), course_data.shortname_course)
 
@@ -176,15 +178,17 @@ class AddCoursePage(BasePage):
         return activity_date
 
     def fill_add_rest_inf(self, course_data: CourseData):
-        """ Функция заполнения вкладок формат и внешний вид"""
-        logger.info(f'ID номер {course_data.section}, '
-                    f' скрытые секции {course_data.hiddensection},'
-                    f' представление курса {course_data.coursedisplay},'
-                    f'Язык {course_data.language}, '
-                    f'Количество отображаемых объявлений {course_data.newsitems},'
-                    f'Показывать журнал оценок студентам {course_data.showgrades},'
-                    f'Показывать отчеты о деятельности {course_data.showteports},'
-                    f'Показать даты активных элементов {course_data.yes_or_no}')
+        """Функция заполнения вкладок формат и внешний вид"""
+        logger.info(
+            f"ID номер {course_data.section}, "
+            f" скрытые секции {course_data.hiddensection},"
+            f" представление курса {course_data.coursedisplay},"
+            f"Язык {course_data.language}, "
+            f"Количество отображаемых объявлений {course_data.newsitems},"
+            f"Показывать журнал оценок студентам {course_data.showgrades},"
+            f"Показывать отчеты о деятельности {course_data.showteports},"
+            f"Показать даты активных элементов {course_data.yes_or_no}"
+        )
         # self.select_value(self.format_course(), course_data.format_course)
         self.select_value(self.id_numsection(), course_data.section)
         self.select_value(self.hidden_sections(), course_data.hiddensection)

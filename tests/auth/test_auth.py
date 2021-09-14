@@ -107,7 +107,7 @@ class TestAuth:
         app.add_course.fill_add_rest_inf(course_data)
         app.add_course.click_submit_save()
         assert (
-                app.add_course.course_name_after_add() == course_data.fullname_course
+            app.add_course.course_name_after_add() == course_data.fullname_course
         ), "The course was not added"
 
         app.open_managment_page()
@@ -117,5 +117,7 @@ class TestAuth:
         inf_course_delete = (
             f"{course_data.shortname_course} {CourseDataConstants.DELETE_COURSE_INFORM}"
         )
-        assert app.add_course.inf_course_deleted() == inf_course_delete, "Course is not deleted"
+        assert (
+            app.add_course.inf_course_deleted() == inf_course_delete
+        ), "Course is not deleted"
         app.add_course.click_resume_button()
