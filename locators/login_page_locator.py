@@ -137,9 +137,5 @@ class AddCourse:
     DELETE_COURSE = (By.CLASS_NAME, "action-delete")
     DELETE = (By.XPATH, "//button[text()='Удалить']")
     RESUME = (By.XPATH, "//button[text()='Продолжить']")
-    ALLERT = (By.CLASS_NAME, "alert-block")
-    # Удаление курса
-
-
-
-
+    COURSE_NAME_AFTER_ADD = (By.TAG_NAME, "h1")
+    COURSE_DELETED = (By.TAG_NAME, "h2")

@@ -1,5 +1,4 @@
 import logging
-import time
 from selenium.webdriver.remote.webelement import WebElement
 from locators.login_page_locator import AddCourse
 from models.auth import CourseData
@@ -61,6 +60,8 @@ class AddCoursePage(BasePage):
         return self.find_element(AddCourse.SHORTNAME_COURSE)
 
     def fill_name_course(self, course_data: CourseData):
+        logger.info(f"Полное имя курса {course_data.fullname_course} "
+                    f"Краткое название курса {course_data.shortname_course}")
         self.fill_element(self.full_name_course(), course_data.fullname_course)
         self.fill_element(self.short_name_course(), course_data.shortname_course)
 
@@ -153,15 +154,6 @@ class AddCoursePage(BasePage):
         coursedisplay = self.find_select_element_2(AddCourse.COURSEDISPLAY)
         return coursedisplay
 
-    def fill_format_course(self, course_data: CourseData):
-        logger.info(f'ID номер {course_data.section}, '
-                    f'скрытые секции {course_data.hiddensection}, '
-                    f'представление курса {course_data.coursedisplay}')
-        #self.select_value(self.format_course(), course_data.format_course)
-        self.select_value(self.id_numsection(), course_data.section)
-        self.select_value(self.hidden_sections(), course_data.hiddensection)
-        self.select_value(self.presentetion_section(), course_data.coursedisplay)
-
     # Заполнение вкладки внешний вид
     def base_language(self):
         base_language = self.find_select_element_2(AddCourse.LANGUAGE)
@@ -183,8 +175,20 @@ class AddCoursePage(BasePage):
         activity_date = self.find_select_element_2(AddCourse.SHOW_ACTIVITY_DATE)
         return activity_date
 
-    def fill_appearance_tab(self, course_data: CourseData):
-        """ Функция заполнения вкладки внешний вид"""
+    def fill_add_rest_inf(self, course_data: CourseData):
+        """ Функция заполнения вкладок формат и внешний вид"""
+        logger.info(f'ID номер {course_data.section}, '
+                    f' скрытые секции {course_data.hiddensection},'
+                    f' представление курса {course_data.coursedisplay},'
+                    f'Язык {course_data.language}, '
+                    f'Количество отображаемых объявлений {course_data.newsitems},'
+                    f'Показывать журнал оценок студентам {course_data.showgrades},'
+                    f'Показывать отчеты о деятельности {course_data.showteports},'
+                    f'Показать даты активных элементов {course_data.yes_or_no}')
+        # self.select_value(self.format_course(), course_data.format_course)
+        self.select_value(self.id_numsection(), course_data.section)
+        self.select_value(self.hidden_sections(), course_data.hiddensection)
+        self.select_value(self.presentetion_section(), course_data.coursedisplay)
         self.select_value(self.base_language(), course_data.language)
         self.select_value(self.newsitems(), course_data.newsitems)
         self.select_value(self.showgrades(), course_data.showgrades)
@@ -237,14 +241,14 @@ class AddCoursePage(BasePage):
     def click_delete_button(self):
         self.click_element(self.delete_button())
 
-    def delete_blocks(self):
-        return self.find_elements(AddCourse.ALLERT)
+    def course_name_after_add(self):
+        return self.find_element(AddCourse.COURSE_NAME_AFTER_ADD).text
 
-    def choose_delete_blocks(self):
-        logger.info(f'ID номер {len(self.delete_blocks)}')
-        blocks = self.find_elements(AddCourse.ALLERT)
-        if len(blocks) > 1:
+    def inf_course_deleted(self) -> str:
+        return self.find_elements(AddCourse.COURSE_DELETED)[1].text
 
+    def resume_button(self):
+        return self.find_clickable_element(AddCourse.RESUME)
 
-            return True
-        return False
+    def click_resume_button(self):
+        self.click_element(self.resume_button())
