@@ -6,7 +6,7 @@ from models.auth import PersonalData
 current_dir = os.path.dirname(__file__)
 user_images_directory = os.path.join(current_dir, "user_images")
 
-
+@pytest.mark.personal_data
 class TestPersonalData:
 
     def test_update_user(self, app, auth, user_info):

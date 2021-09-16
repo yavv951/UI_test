@@ -6,7 +6,7 @@ from models.auth import AuthData, PersonalData, CourseData
 current_dir = os.path.dirname(__file__)
 user_images_directory = os.path.join(current_dir, "user_images")
 
-
+@pytest.mark.auth
 class TestAuth:
 
     def test_login_page(self, app):
