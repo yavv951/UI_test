@@ -3,6 +3,7 @@ class LoginConstants:
     IS_CHANGE_INF = "Изменения сохранены"
     INCORRECT_DATE = "Дата окончания курса должна быть позже даты его начала."
 
+
 class PersonalDataConstants:
     TIMEZONE_VALUES = (
         "Asia/Vladivostok",
@@ -41,5 +42,3 @@ class CourseDataConstants:
     )
     LANGUAGE = ("ru", "en")
     MAXBYTE = ("0", "2097152", "1048576", "512000", "102400", "51200", "10240")
-
-

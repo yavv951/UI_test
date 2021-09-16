@@ -6,7 +6,6 @@ from pages.base_page import BasePage
 
 
 class PersonalDataPage(BasePage):
-
     def user_menu(self) -> WebElement:
         return self.find_element(BasePageLocators.USER_MENU)
 
@@ -39,15 +38,15 @@ class PersonalDataPage(BasePage):
         self.find_element(UserPageLocators.EDIT_INFO)
 
     def firstname_input(self) -> WebElement:
-        """ Функция нахождения элемента поля имя """
+        """Функция нахождения элемента поля имя"""
         return self.find_element(UserPageLocators.FIRST_NAME)
 
     def lastname_input(self) -> WebElement:
-        """ Функция нахождения элемента поля фамилия """
+        """Функция нахождения элемента поля фамилия"""
         return self.find_element(UserPageLocators.LAST_NAME)
 
     def input_email(self) -> WebElement:
-        """ Функция нахождения элемента поля email """
+        """Функция нахождения элемента поля email"""
         return self.find_element(UserPageLocators.EMAIL)
 
     def mood_profile_input(self) -> WebElement:

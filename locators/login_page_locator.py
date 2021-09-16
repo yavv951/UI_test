@@ -15,4 +15,3 @@ class BasePageLocators:
     EXIT_CONFIRM = (By.XPATH, "//button[text()='Выход']")
     MENU_ACTION = (By.ID, "actionmenuaction-5")
     MENU_ACTION_2 = (By.ID, "actionmenuaction-2")
-

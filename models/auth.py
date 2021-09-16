@@ -171,5 +171,5 @@ class CourseData:
             showteports,
             yes_or_no,
             maxbytes,
-            flow
+            flow,
         )

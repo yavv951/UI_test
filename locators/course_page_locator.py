@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+
 class AddCourse:
     MEDIA_BODY = (By.CLASS_NAME, "media-body")
     SABARS = (By.CLASS_NAME, "fa-bars")

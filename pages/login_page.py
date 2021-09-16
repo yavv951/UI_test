@@ -17,8 +17,8 @@ class LoginPage(BasePage):
 
     # Переход на страницу авторизации.
     def go_on_login_page(self):
-        sign_in = self.find_element(BasePageLocators.PYTHON_BUTTON)
-        sign_in.click()
+        element = self.find_element(BasePageLocators.PYTHON_BUTTON)
+        self.click_element(element)
 
     # Функция указывает на то,что мы находимся или нет на странице авторизации.
     def login_page_y(self):
@@ -65,4 +65,3 @@ class LoginPage(BasePage):
 
     def exit_confirm(self) -> WebElement:
         return self.find_elements(BasePageLocators.EXIT_CONFIRM)
-

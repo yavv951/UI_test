@@ -6,9 +6,9 @@ from models.auth import CourseData
 current_dir = os.path.dirname(__file__)
 user_images_directory = os.path.join(current_dir, "user_images")
 
+
 @pytest.mark.add_course
 class TestAddCourse:
-
     @pytest.mark.parametrize(
         "image_file",
         [

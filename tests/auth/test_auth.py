@@ -1,14 +1,14 @@
 import os.path
 import pytest
-from common.constants import LoginConstants, CourseDataConstants
-from models.auth import AuthData, PersonalData, CourseData
+from common.constants import LoginConstants
+from models.auth import AuthData
 
 current_dir = os.path.dirname(__file__)
 user_images_directory = os.path.join(current_dir, "user_images")
 
+
 @pytest.mark.auth
 class TestAuth:
-
     def test_login_page(self, app):
         """
         Steps
@@ -50,4 +50,3 @@ class TestAuth:
         setattr(data, field, None)
         app.login.auth(data)
         assert LoginConstants.AUTH_ERROR == app.login.auth_login_error(), "We are auth!"
-

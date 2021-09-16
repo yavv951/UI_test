@@ -1,6 +1,4 @@
 import logging
-
-from models.auth import PersonalData
 from pages.add_course_page import AddCoursePage
 from pages.login_page import LoginPage
 from pages.update_page import PersonalDataPage

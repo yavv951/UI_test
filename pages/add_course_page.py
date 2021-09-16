@@ -304,5 +304,3 @@ class AddCoursePage(BasePage):
 
     def entering_an_incorrect_date(self):
         return self.find_element(AddCourse.INVALID_DATE).text
-
-
