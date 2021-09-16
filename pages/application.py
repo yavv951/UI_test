@@ -1,7 +1,9 @@
 import logging
 
+from models.auth import PersonalData
 from pages.add_course_page import AddCoursePage
 from pages.login_page import LoginPage
+from pages.update_page import PersonalDataPage
 
 logger = logging.getLogger("moodle")
 
@@ -12,6 +14,7 @@ class Application:
         self.url = url
         self.login = LoginPage(self)
         self.add_course = AddCoursePage(self)
+        self.personal_data = PersonalDataPage(self)
 
     def quit(self):
         self.driver.quit()

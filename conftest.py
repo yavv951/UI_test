@@ -2,10 +2,10 @@ from selenium import webdriver
 import pytest
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from models.auth import AuthData, PersonalData
-from pages.application import Application
 import logging
 import allure
+from models.auth import AuthData, PersonalData
+from pages.application import Application
 
 logger = logging.getLogger("moodle")
 
@@ -112,7 +112,7 @@ def update_user_info(app, request):
 # Фикстура для перехода в блок редактирования информации пользователя
 @pytest.fixture
 def user_info(app):
-    app.login.update_user()
+    app.personal_data.update_user()
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)

@@ -1,8 +1,9 @@
 import logging
-from selenium.webdriver.remote.webelement import WebElement
-from locators.login_page_locator import AddCourse
-from models.auth import CourseData
 
+from selenium.webdriver.remote.webelement import WebElement
+
+from locators.course_page_locator import AddCourse
+from models.auth import CourseData
 from pages.base_page import BasePage
 
 logger = logging.getLogger("moodle")
@@ -45,6 +46,7 @@ class AddCoursePage(BasePage):
         self.click_on_admin_button()
         self.click_on_course_button()
         self.click_on_add_course_button()
+        self.open_all_tabs()
 
     def collaps_all_element(self):
         return self.find_clickable_element(AddCourse.COLLAPSE)
@@ -114,7 +116,7 @@ class AddCoursePage(BasePage):
 
     def fill_course_description(self):
         """Функция описание курса"""
-        self.fill_element(self.course_description(), "course_data.about")
+        self.fill_element(self.course_description(), "Тут должно быть описание курса")
 
     def photo_course(self) -> WebElement:
         return self.find_clickable_element(AddCourse.UPLOADING_FILES)
@@ -256,3 +258,51 @@ class AddCoursePage(BasePage):
 
     def click_resume_button(self):
         self.click_element(self.resume_button())
+
+    def start_day(self):
+        day_start_day = self.find_select_element_2(AddCourse.DAY_DATE_START)
+        return day_start_day
+
+    def start_month(self):
+        month_start_day = self.find_select_element_2(AddCourse.MONTH_DATE_START)
+        return month_start_day
+
+    def start_year(self):
+        year_start_day = self.find_select_element_2(AddCourse.YEAR_DATE_START)
+        return year_start_day
+
+    def end_day(self):
+        day_end_day = self.find_select_element_2(AddCourse.DAY_DATE_END)
+        return day_end_day
+
+    def end_month(self):
+        month_end_day = self.find_select_element_2(AddCourse.MONTH_DATE_END)
+        return month_end_day
+
+    def end_year(self):
+        year_end_day = self.find_select_element_2(AddCourse.YEAR_DATE_END)
+        return year_end_day
+
+    def invalid_date(self, course_data: CourseData):
+        """Функция заполнения некорректной даты
+        (начала курса позже окончания курса)
+        """
+        logger.info(
+            f"День начала курса {course_data.day}, "
+            f"Месяц начала курса {course_data.month},"
+            f"Год начала курса {course_data.end_year},"
+            f"День окончания курса {course_data.day}, "
+            f"Месяц окончания курса {course_data.month},"
+            f"День окончания курса {course_data.start_year}"
+        )
+        self.select_value(self.start_day(), course_data.day)
+        self.select_value(self.start_month(), course_data.month)
+        self.select_value(self.start_year(), course_data.end_year)
+        self.select_value(self.end_day(), course_data.day)
+        self.select_value(self.end_month(), course_data.month)
+        self.select_value(self.end_year(), course_data.start_year)
+
+    def entering_an_incorrect_date(self):
+        return self.find_element(AddCourse.INVALID_DATE).text
+
+

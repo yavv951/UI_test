@@ -57,7 +57,7 @@ class PersonalData:
         country_code = fake.country_code()
         about = fake.text(max_nb_chars=200)
         url = fake.url()
-        image_url = fake.image_url(width=100, height=100)
+        image_url = fake.image_url(width=200, height=200)
         image_inf = fake.text(max_nb_chars=30)
         image_name = random.choice(PersonalDataConstants.IMAGE_NAME)
         return PersonalData(
@@ -130,7 +130,7 @@ class CourseData:
         fullname_course = fake.text(max_nb_chars=10)
         shortname_course = fake.text(max_nb_chars=5)
         visible = random.choice(CourseDataConstants.VISIBLE)
-        day = str(random.randint(1, 31))
+        day = str(random.randint(1, 30))
         month = str(random.randint(1, 12))
         start_year = random.choice(CourseDataConstants.START_YEAR)
         end_year = random.choice(CourseDataConstants.END_YEAR)
@@ -171,5 +171,5 @@ class CourseData:
             showteports,
             yes_or_no,
             maxbytes,
-            flow,
+            flow
         )

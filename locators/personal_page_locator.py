@@ -1,0 +1,53 @@
+from selenium.webdriver.common.by import By
+
+
+class UserPageLocators:
+    EDIT_INFO = (By.CSS_SELECTOR, "a[href*='editadvanced']")
+    CHECK_BOX_SUSPENDED = (By.ID, "id_suspended")
+    USER_NAME = (By.ID, "id_username")
+    FIRST_NAME = (By.ID, "id_firstname")
+    LAST_NAME = (By.ID, "id_lastname")
+    EMAIL = (By.ID, "id_email")
+    MOODLE_NET_PROFILE = (By.NAME, "moodlenetprofile")
+    CITY_INPUT = (By.ID, "id_city")
+    COUNTRY_SELECT = (By.ID, "id_country")
+    TIMEZONE_SELECT = (By.ID, "id_timezone")
+    DESCRIPTION = (By.ID, "id_description_editoreditable")
+    EMAIL_DISPLAY = (By.ID, "id_maildisplay")
+    NEW_PASSWORD = (By.ID, "id_newpassword")
+    SUBMIT = (By.ID, "id_submitbutton")
+    IS_CHANGE_2 = (By.ID, "user-notifications")
+    IS_CHANGE = (By.CLASS_NAME, "alert-success")
+    OPEN_WIN = (By.CLASS_NAME, "collapseexpand")
+    MOODLE_PICTURE = (By.XPATH, "//*[text()='Изображение пользователя']")
+    INPUT_PICTURE = (By.CLASS_NAME, "dndupload-arrow")
+    ALT_PICTURE = (By.ID, "fileurl")
+    BUTTON_IMAGE = (By.CLASS_NAME, "fp-login-submit")
+    IMAGE = (By.CLASS_NAME, "fp-filename-field")
+    IMAGE_FILE = (By.CLASS_NAME, "fp-file")
+    SELECT_IMAGE = (By.XPATH, "//*[text()='Выбрать этот файл']")
+    CANCELLATION_BUTTON = (By.XPATH, "//*[text()='Отмена']")
+    DESCRIPTION_IMAGE = (By.ID, "id_imagealt")
+    NAME_IMAGE = (By.CLASS_NAME, "form-control")
+    IMAGE_DOWLOUD_URL = (By.XPATH, "//*[text()='Загрузка файлов по URL']")
+    IMAGE_DOWLOUD = (By.XPATH, "//*[text()='Загрузить файл']")
+    # Вкладка дополнительная информация об имени
+    ADDITIONAL_INF = (By.XPATH, "//*[text()='Дополнительная информация об имени']")
+    FIRST_FONETIC_NAME = (By.ID, "id_firstnamephonetic")
+    LAST_FONETIC_NAME = (By.ID, "id_lastnamephonetic")
+    MIDDLE_NAME = (By.ID, "id_middlename")
+    ALTER_NAME = (By.ID, "id_alternatename")
+    # Вкладка интересы
+    MOODLE_INTEREST = (By.XPATH, "//*[text()='Интересы']")
+    FORM_AUTOCOMPLIT = (By.CSS_SELECTOR, 'input[placeholder="Введите теги..."]')
+    DELETE_AUTOCOMPLIT = (By.XPATH, '//*[span="× "]')
+    # Вкладка необязательное
+    OPTIONAL = (By.XPATH, "//*[text()='Необязательное']")
+    ID_NUMBER = (By.ID, "id_idnumber")
+    INSTITUTION = (By.ID, "id_institution")
+    DEPARTAMENT = (By.ID, "id_department")
+    PHONE_1 = (By.ID, "id_phone1")
+    PHONE_2 = (By.ID, "id_phone2")
+    ADDRESS = (By.ID, "id_address")
+
+

@@ -1,7 +1,7 @@
 class LoginConstants:
     AUTH_ERROR = "Неверный логин или пароль, попробуйте заново."
     IS_CHANGE_INF = "Изменения сохранены"
-
+    INCORRECT_DATE = "Дата окончания курса должна быть позже даты его начала."
 
 class PersonalDataConstants:
     TIMEZONE_VALUES = (
@@ -31,7 +31,7 @@ class CourseDataConstants:
     DELETE_COURSE_INFORM = "был полностью удален"
     YES_NO = ("0", "1")
     VISIBLE = ("0", "1")  # скрыть  # показать
-    START_YEAR = "2021"
+    START_YEAR = ("2020", "2021")
     END_YEAR = ("2022", "2023")
     FORMAT_COURSE = ("singleactivity", "social", "topics", "weeks")
     HIDDENSECTION = ("0", "1")  # 0 - в неразвернутом виде 1- полностью невидимы
@@ -41,3 +41,5 @@ class CourseDataConstants:
     )
     LANGUAGE = ("ru", "en")
     MAXBYTE = ("0", "2097152", "1048576", "512000", "102400", "51200", "10240")
+
+
