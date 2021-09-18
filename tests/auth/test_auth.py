@@ -9,16 +9,6 @@ user_images_directory = os.path.join(current_dir, "user_images")
 
 @pytest.mark.auth
 class TestAuth:
-    #def test_login_page(self, app):
-        """
-        Steps
-        1. Open main page
-        2. CLick on course
-        """
-        #app.open_main_page()
-        #app.login.go_on_login_page()
-        #assert app.login.login_page_y(), "We are not in login page"
-
     def test_auth_valid_data(self, app, auth):
         """
         Steps
