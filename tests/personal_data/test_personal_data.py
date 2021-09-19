@@ -1,8 +1,6 @@
 import os.path
-import time
-
 import pytest
-from common.constants import LoginConstants, PersonalDataConstants
+from common.constants import LoginConstants
 from models.auth import PersonalData
 
 current_dir = os.path.dirname(__file__)

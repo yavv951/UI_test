@@ -113,7 +113,7 @@ class PersonalDataPage(BasePage):
         return self.find_clickable_element(UserPageLocators.FORM_AUTOCOMPLIT)
 
     def teg_autocomplite(self) -> WebElement:
-        """Функция для удаления тэга,находит кнопку "х". """
+        """Функция для удаления тэга,находит кнопку "х"."""
         return self.find_clickable_element(UserPageLocators.DELETE_AUTOCOMPLIT)
 
     def delete_autocomplite(self):
@@ -148,7 +148,7 @@ class PersonalDataPage(BasePage):
         return self.find_clickable_element(UserPageLocators.ADDRESS)
 
     def submit_button_prof(self) -> WebElement:
-        """ Находим элемент обновить профиль."""
+        """Находим элемент обновить профиль."""
         return self.find_clickable_element(UserPageLocators.SUBMIT)
 
     def submit_changes(self):
@@ -164,11 +164,11 @@ class PersonalDataPage(BasePage):
         self.click_element(self.button_all_sections())
 
     def input_image(self) -> WebElement:
-        """ Функция, которая находит кнопку скачать."""
+        """Функция, которая находит кнопку скачать."""
         return self.find_elements(UserPageLocators.BUTTON_IMAGE)
 
     def click_image(self) -> WebElement:
-        """ Функция, которая находит само изображение."""
+        """Функция, которая находит само изображение."""
         return self.find_clickable_element(UserPageLocators.IMAGE)
 
     def select_image(self) -> WebElement:
@@ -183,7 +183,7 @@ class PersonalDataPage(BasePage):
         return self.find_clickable_element(UserPageLocators.DESCRIPTION_IMAGE)
 
     def click_on_button_urlimage(self) -> WebElement:
-        """ Функция нахождения кнопки для загрузки изображения через URL."""
+        """Функция нахождения кнопки для загрузки изображения через URL."""
         return self.find_clickable_element(UserPageLocators.IMAGE_DOWLOUD_URL)
 
     def edit_personal_data(self, personal_data: PersonalData):
@@ -223,7 +223,7 @@ class PersonalDataPage(BasePage):
         self.click_element(self.submit_button_prof())
 
     def edit_required_fields(self, personal_data: PersonalData):
-        """ Дополнительная функция, для быстрой проверки заполнения информации
+        """Дополнительная функция, для быстрой проверки заполнения информации
         без обязательных полей (имя, фамилию, email)"""
         self.fill_element(self.firstname_input(), personal_data.firstname)
         self.fill_element(self.lastname_input(), personal_data.lastname)

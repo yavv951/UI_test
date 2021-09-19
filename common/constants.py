@@ -4,7 +4,6 @@ class LoginConstants:
     INCORRECT_DATE = "Дата окончания курса должна быть позже даты его начала."
 
 
-
 class PersonalDataConstants:
     FILL_REQUIRED = "Заполните поле"
     FILL_REQUIRED_2 = "Необходимо заполнить"

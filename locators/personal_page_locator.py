@@ -52,4 +52,3 @@ class UserPageLocators:
     REQUIRED = (By.ID, "id_error_firstname")
     REQUIRED_2 = (By.ID, "id_error_lastname")
     REQUIRED_3 = (By.ID, "id_error_email")
-

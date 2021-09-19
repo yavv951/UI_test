@@ -22,7 +22,7 @@ class LoginPage(BasePage):
         self.click_element(element)
 
     def login_page_y(self):
-        """Функция указывает на то,что мы находимся или нет на странице авторизации. """
+        """Функция указывает на то,что мы находимся или нет на странице авторизации."""
         element = self.find_elements(BasePageLocators.TEXT_LOGIN_PAGE)
         if len(element) > 0:
             return True
