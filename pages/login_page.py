@@ -9,19 +9,20 @@ logger = logging.getLogger("moodle")
 
 class LoginPage(BasePage):
     def is_auth(self):
+        """Функция проверки авторизированы мы или нет."""
         self.find_element(BasePageLocators.FORM)
         element = self.find_elements(BasePageLocators.USER_BUTTON)
         if len(element) > 0:
             return True
         return False
 
-    # Переход на страницу авторизации.
     def go_on_login_page(self):
+        """Функция перехода на страницу авторизации."""
         element = self.find_clickable_element(BasePageLocators.PYTHON_BUTTON)
         self.click_element(element)
 
-    # Функция указывает на то,что мы находимся или нет на странице авторизации.
     def login_page_y(self):
+        """Функция указывает на то,что мы находимся или нет на странице авторизации. """
         element = self.find_elements(BasePageLocators.TEXT_LOGIN_PAGE)
         if len(element) > 0:
             return True

@@ -49,3 +49,7 @@ class UserPageLocators:
     PHONE_1 = (By.ID, "id_phone1")
     PHONE_2 = (By.ID, "id_phone2")
     ADDRESS = (By.ID, "id_address")
+    REQUIRED = (By.ID, "id_error_firstname")
+    REQUIRED_2 = (By.ID, "id_error_lastname")
+    REQUIRED_3 = (By.ID, "id_error_email")
+

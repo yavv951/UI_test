@@ -1,7 +1,7 @@
 import logging
 from pages.add_course_page import AddCoursePage
 from pages.login_page import LoginPage
-from pages.update_page import PersonalDataPage
+from pages.update_user_page import PersonalDataPage
 
 logger = logging.getLogger("moodle")
 
