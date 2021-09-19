@@ -65,4 +65,4 @@ class LoginPage(BasePage):
         return False
 
     def exit_confirm(self) -> WebElement:
-        return self.find_elements(BasePageLocators.EXIT_CONFIRM)
+        return self.find_elements(BasePageLocators.EXIT_CONFIRM)[0]
