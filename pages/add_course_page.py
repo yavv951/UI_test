@@ -1,7 +1,5 @@
 import logging
-
 from selenium.webdriver.remote.webelement import WebElement
-
 from locators.course_page_locator import AddCourse
 from models.auth import CourseData
 from pages.base_page import BasePage
