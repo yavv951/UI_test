@@ -22,7 +22,7 @@ class TestPersonalData:
         personal_data = PersonalData.random()
         app.personal_data.edit_personal_data(personal_data)
         assert (
-                LoginConstants.IS_CHANGE_INF in app.personal_data.is_change()
+            LoginConstants.IS_CHANGE_INF in app.personal_data.is_change()
         ), "Is not change!"
 
     @pytest.mark.parametrize("field", ["firstname", "lastname", "user_email"])

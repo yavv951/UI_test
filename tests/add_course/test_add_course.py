@@ -49,7 +49,7 @@ class TestAddCourse:
         app.add_course.fill_add_rest_inf(course_data)
         app.add_course.click_submit_save()
         assert (
-                app.add_course.course_name_after_add() == course_data.fullname_course
+            app.add_course.course_name_after_add() == course_data.fullname_course
         ), "The course was not added"
 
         app.open_managment_page()
@@ -60,7 +60,7 @@ class TestAddCourse:
             f"{course_data.shortname_course} {CourseDataConstants.DELETE_COURSE_INFORM}"
         )
         assert (
-                app.add_course.inf_course_deleted() == inf_course_delete
+            app.add_course.inf_course_deleted() == inf_course_delete
         ), "Course is not deleted"
         app.add_course.click_resume_button()
 
@@ -81,5 +81,5 @@ class TestAddCourse:
         app.add_course.fill_course_description()
         app.add_course.click_submit_save()
         assert (
-                app.add_course.entering_an_incorrect_date() == LoginConstants.INCORRECT_DATE
+            app.add_course.entering_an_incorrect_date() == LoginConstants.INCORRECT_DATE
         ), "The course was added"

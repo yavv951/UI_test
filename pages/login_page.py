@@ -52,7 +52,7 @@ class LoginPage(BasePage):
             self.click_element(self.user_menu())
             self.click_element(self.exit())
         if self.is_exit_confirm_button():
-            self.click_element(self.exit_confirm()[0])
+            self.click_element(self.exit_confirm())
         self.fill_element(self.email_input(), data.login)
         self.fill_element(self.password_input(), data.password)
         self.click_element(self.submit_button())
